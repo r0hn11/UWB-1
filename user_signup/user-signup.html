@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UWB | Account</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../common_images/favicon.png">
+    <link rel="stylesheet" href="user-signup.css">
+</head>
+
+<body>
+    <div class="wrapper flex-row">
+        <div class="form-wrapper flex-row">
+            <div class="si forms">
+                <form action="user-dashboard.html" class="flex-col">
+                    <h2>Sign in</h2>
+                    <div class="switch">Don't have an account ? <span id="reg_now">Register Now</span></div>
+                    <label for="user_mail">Email</label>
+                    <input type="email" id="user_mail" required>
+                    <label for="user_pw">Password</label>
+                    <input type="password" id="user_pw" required>
+                    <a href="" class="f_pw">Forgot password ?</a>
+                    <button type="submit">Sign In</button>
+                </form>
+            </div>
+            <div class="su forms inactive">
+                <form action="user-email-verify.php" method="post" name="usersignup" class="flex-col">
+                    <h2>Sign up</h2>
+                    <div class="switch">Already have an account ? <span id="lin_now">Sign In Now</span></div>
+                    <label for="new_usrname">Username</label>
+                    <input type="text" id="new_usrname" name="uname" required>
+                    <label for="new_mail">Email</label>
+                    <input type="email" id="new_mail" name="uemail" required>
+                    <label for="crt_pw">Create password</label>
+                    <input type="password" id="crt_pw" name="upw" required>
+                    <label for="re_pw">Retype password</label>
+                    <input type="password" id="re_pw" name="ucpw" required>
+                    <button type="submit" value="SUBMIT">Sign Up</button>
+                    <div class="tnc">By clicking, you agree to accept our <span>terms and conditions</span>.</div>
+                </form>
+            </div>
+        </div>
+        <div class="images-wrapper flex-row">
+            <div class="img"></div>
+        </div>
+    </div>
+</body>
+
+<script>
+
+    let reg_now = document.querySelector('#reg_now');
+    let lin_now = document.querySelector('#lin_now');
+    let image = document.querySelector('.img');
+    let si_form = document.querySelector('.si');
+    let su_form = document.querySelector('.su');
+
+    function switch_card(){
+        image.classList.toggle('page_move');
+        si_form.classList.toggle('inactive');
+        su_form.classList.toggle('inactive');
+        console.log('done');
+    }
+
+    reg_now.addEventListener('click', switch_card);
+    lin_now.addEventListener('click', switch_card);
+
+</script>
+
+</html>
+<!-- images used : https://www.artstation.com/rossdraws-->

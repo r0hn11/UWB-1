@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snap</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../common_images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root{
+            --text : #444;
+            --icon-clr : #bbb;
+            --theme : #eee;
+        }
+        @media (prefers-color-scheme){
+            :root{
+                --theme : #222;
+                --text : #aaa;
+                --icon-clr : #666;
+            }
+        }
+        body{
+            display: flex;
+            align-items: center;
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: 2px;
+            color: var(--text);
+            background: var(--theme);
+        }
+        .wrapper{
+            padding: 30px;
+        }
+        i{
+            font-size: 40px;
+            color: var(--icon-clr);
+            margin: 10px 0;
+        }
+        .m1{
+            opacity: 0.5;
+            font-size: 30px;
+            font-weight: 600;
+        }
+        .m2{
+            opacity: 0.5;
+            font-size: 15px;
+        }
+        .m3{
+            font-weight: 400;
+            margin-bottom: 18px;
+        }
+        a{
+            font-size: 15px;
+            text-decoration: none;
+            color: rgb(0, 150, 255);
+            cursor: pointer;
+        }
+        @media screen and (max-width:600px) {
+            .m1{font-size: 30px;}
+            .m2{font-size: 15px;}
+            .m3{font-size: 15px;}
+            i{font-size: 40px;}
+        }
+        @media screen and (max-width:400px) {
+            .m1{font-size: 25px;}
+            .m2{font-size: 13px;}
+            .m3{font-size: 13px;}
+            i{font-size: 40px;}
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        <div class="err_msg">
+            <i class="fas fa-file"></i>
+            <div class="m1">under construction !</div>
+            <div class="m2">sorry, the page you are looking for is still under construction.</div>
+            <div class="m3">why not explore other pages while we work here :)</div>
+            <a href="../landing_page/index.html" class="ret">Return to homescreen</a>
+        </div>
+    </div>
+
+</body>
+<script src="https://kit.fontawesome.com/7c7b8993a0.js" crossorigin="anonymous"></script>
+</html>

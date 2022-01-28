@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin-login</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../common_images/favicon.png">
+    <link rel="stylesheet" href="admin-login-style.css">
+</head>
+
+<body>
+    <div class="wrapper flex-col">
+        <div class="front flex-col">
+            <div class="icon"></div>
+            <div class="ttl">Admin login</div>
+            <div class="btn">login</div>
+        </div>
+        <form action="admin-login-validate.php" class="rear flex-col vanish2" autocomplete="off" method="post">
+            <div class="icon"></div>
+            <div class="ttl">Admin login</div>
+            <div class="user-input flex-col">
+                <div class="box usrn">
+                    <input type="text" name="aname" id="usrname" required>
+                    <div class="underline"></div>
+                    <label>username</label>
+                </div>
+                <div class="box pass">
+                    <input type="password" name="apw" id="passw" required>
+                    <div class="underline"></div>
+                    <label>password</label>
+                </div>
+                <div class="dept">
+                    <select name="departments" id="">
+                        <option value="data_entry">Data Entry</option>
+                        <option value="blog">Blog</option>
+                    </select>
+                </div>
+            </div>
+            <button type="submit" name="login" class="btn">login</butt>
+        </div>
+    </div>
+</body>
+
+<script src="https://kit.fontawesome.com/7c7b8993a0.js" crossorigin="anonymous"></script>
+<script>
+    /*grabbing elements*/
+    let body = document.querySelector('body');
+    let front = document.querySelector('.front');
+    let rear = document.querySelector('.rear');
+    let wrapper = document.querySelector('.wrapper');
+    let btn = document.querySelector('.btn');
+    
+    wrapper.style.width = `calc(150px + ${rear.offsetWidth}px)`;
+    wrapper.style.height = `calc(30px + ${rear.offsetHeight}px)`;
+
+    /*setting height*/
+    window.onresize = heightcheck;
+    function heightcheck() {
+        let hght = window.innerHeight;
+        (document.getElementsByTagName('body')[0]).style.height = hght+'px';
+    }
+    
+    /*functions*/
+    let show_flag = 0;
+    function switch_pg(){
+        front.classList.add('vanish');
+        rear.classList.remove('vanish2');
+        show_flag = 1;
+    }
+
+    /*events*/
+    body.addEventListener('load',heightcheck());
+    body.addEventListener('resize',heightcheck());
+    btn.addEventListener('click',switch_pg);    
+</script>
+</html>

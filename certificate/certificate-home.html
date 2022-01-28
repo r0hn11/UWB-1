@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UWB | Certificate</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../common_images/favicon.png">
+    <link rel="stylesheet" href="certificate-style.css">
+    <script>
+    let hght = 0;
+    setInterval(function() {
+        hght = window.innerHeight;
+        (document.getElementsByTagName('body')[0]).style.height = hght+'px';
+    }, 10);
+</script>
+<script src="https://kit.fontawesome.com/7c7b8993a0.js" crossorigin="anonymous"></script>
+</head>
+
+<body style="transform:scale(0.9);">
+    <form action="certificate-details.php" method="post">
+        <div id="organisation" class="flex">
+            <div id="logo"></div>
+            <div id="name">UWB Fo.</div>
+        </div>
+        <div id="title" class="flex">Verify a Certificate</div>
+        <div id="user_input" class="flex">
+            <input type="text" name="certificateId" id="cert_id" required autocomplete="off">
+            <div id="underline"></div>
+            <label>Enter Certificate ID</label>
+        </div>
+        <div id="btn_wrapper" class="flex"><button name="validate" type="submit">validate</button></div>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,408 @@
+body{
+    background: var(--theme);
+}
+
+/*--------------------------------------------------------BREADCRUMB*/
+.breadcrumb_par{
+    justify-content: center;
+    background: var(--breadcrumb-bg);
+    box-shadow: var(--breadcrumb-shdow);
+}
+.breadcrumb{
+    justify-content: flex-start;
+    padding: 10px var(--padd_h);
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    color: var(--text);
+    width: 100%;
+    max-width: 1920px;
+}
+.breadcrumb_par .breadcrumb a{
+    font-size: 15px;
+    background: transparent;
+}
+.breadcrumb_par .breadcrumb .home a{
+    color: var(--accent);
+    padding: 0;
+}
+.breadcrumb_par .breadcrumb .blog a{
+    color: var(--text);
+    padding: 0;
+}
+.separator{margin: 0 5px;}
+.breadcrumb_par .breadcrumb a:focus{
+    text-decoration: underline;
+}
+
+/*--------------------------------------------------------BREADCRUMB*/
+.blog_wrap_par{
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+}
+.blog_main{
+    padding: 50px var(--padd_h);
+    height: 100%;
+    width: 100%;
+    max-width: 1920px;
+    align-items: center;
+    color: var(--text);
+}
+.sect_ttl{
+    letter-spacing: 2px;
+    padding: 5px;
+    text-align: center;
+    color: var(--text);
+    font-size: 25px;
+    position: relative;
+    margin: 0 0 30px 0;
+}
+.sect_ttl::after{
+    content: '';
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    width: 100%;
+    background: url(../common_images/capsule.png) no-repeat center center/contain;
+    z-index: -1;
+}
+@media (prefers-color-scheme: dark){
+    .sect_ttl::after{opacity: 0.1;}
+}
+
+
+/*--------------------------------------------------------NO POST*/
+.blog_main .blog_content{
+    align-items: center;
+}
+.no_post_wrap{
+    gap: 10px;
+    padding: 30px 0;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: 0.5s ease-in-out;
+}
+.no_post_img{
+    --op : 0.7;
+    width: 200px;
+    margin: auto;
+    opacity: var(--op);
+    filter: saturate(3) hue-rotate(-20deg);
+}
+.no_post_msg_bl{
+    color: var(--text-fade);
+    font-family: var(--fancy);
+    font-size: 22px;
+    letter-spacing: 1px;
+    text-align: center;
+}
+@media (prefers-color-scheme : dark){
+    .no_post_img{--op : 0.35;}
+}
+.blog_main .share_btn{
+    cursor: pointer;
+    font-family: var(--formal);
+    color: #fff;
+    background: var(--accent);
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+    border-radius: 3px;
+    font-weight: 500;
+    margin: 20px 0;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s ease-in-out;
+}
+.shr_fx{
+    position: absolute;
+    transform: scale(0);
+    height: 500px;
+    width: 500px;
+    border-radius: 50%;
+    background: #fff;
+    opacity: 0.7;
+    transition: 0.5s ease-in-out;
+}
+.blob{
+    height: 60px !important;
+    width: 60px !important;
+    border-radius: 50% !important;
+    position: sticky !important;
+    bottom: 20px;
+    box-shadow: var(--prof-card-shdow);
+}
+.blob i{font-size: 25px;}
+.blog_main .share_btn:focus, .blog_main .share_btn:hover{
+    text-shadow: 0 0 3px #fff;
+}
+.blog_main .share_btn:focus .shr_fx, .blog_main .share_btn:hover .shr_fx{
+    animation: bllm 0.75s ease-in-out 1 forwards;
+}
+@keyframes bllm {
+    0%{transform: scale(0);}
+    100%{transform: scale(1); opacity: 0;}
+}
+
+/*--------------------------------------------------------BLOG CARD*/
+.blog_cards_container{
+    justify-content: center;
+    gap: 30px;
+    padding: 10px;
+    flex-wrap: wrap;
+    max-width: 1920px;
+}
+
+.blog_card{
+    padding: 15px 20px;
+    height: 290px;
+    min-width: 240px;
+    max-width: 240px;
+    border-radius: 7px;
+    background: var(--card);
+    letter-spacing: 1px;
+    box-shadow: var(--prof-card-shdow);
+    justify-content: unset;
+    position: relative;
+    overflow: hidden;
+    transition: 0.7s ease-in-out;
+}
+.blog_card .bname{
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    position: relative;
+}
+.blog_card .bauth{
+    cursor: pointer;
+    letter-spacing: 1px;
+    font-size: 11px;
+    padding: 8px 0;
+    text-transform: capitalize;
+    position: relative;
+}
+.blog_card .bauth::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-bottom: 2px solid var(--accent);
+}
+.blog_card .bdesc{
+    font-size: 11px;
+    color: var(--text-fade);
+    height: 170px;
+    /* text-align: justify; */
+    margin-top: 20px;
+    overflow: hidden;
+    position: relative;
+}
+.blog_card .bdesc::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(transparent 70%, var(--card));
+    z-index: 1;
+}
+.blog_card .rd_more{
+    letter-spacing: 1px;
+    background: transparent;
+    font-family: var(--formal);
+    font-size: 14px;
+    text-align: left;
+    padding: 0;
+    color: var(--links);
+}
+.blog_card .rd_more:hover, .blog_card .rd_more:focus{
+    background: none;
+    text-decoration-line: underline;
+}
+
+/*--------------------------------------------------------ADD STORY CARD*/
+#load_more{
+    background: var(--menu_hover_link_bg);
+    padding: 7px 30px;
+    border-radius: 500px;
+    display: flex;
+    align-items: center;
+    font-family: var(--formal);
+    text-transform: capitalize;
+    letter-spacing: 2px;
+    font-weight: 500;
+    font-size: 13px;
+    color: var(--links);
+    margin: 50px 0 20px 0;
+    position: relative;
+}
+#load_more::before{
+    pointer-events: none;
+    content: '';
+    width: 0%;
+    border-radius: 100px;
+    /* background: linear-gradient(90deg, var(--accent), transparent); */
+    background: var(--links);
+    height: 2px;
+    position: absolute;
+    left: 110%;
+    transition: 0.2s ease-in-out;
+}
+#load_more::after{
+    pointer-events: none;
+    content: '';
+    width: 0%;
+    border-radius: 100px;
+    /* background: linear-gradient(90deg, transparent, var(--accent)); */
+    background: var(--links);
+    height: 2px;
+    position: absolute;
+    right: 110%;
+    transition: 0.2s ease-in-out;
+}
+#load_more:hover::after, #load_more:hover::before, #load_more:focus::after, #load_more:focus::before{
+    width: 50%;
+}
+
+
+
+
+/*--------------------------------------------------------ADD STORY CARD*/
+.add_post_par{
+    align-items: center;
+    justify-content: center;
+    min-width: 90vw;
+    letter-spacing: 1px;
+    z-index: 900;
+    overflow-y: hidden;
+    transition: 0.5s ease-in-out;
+}
+.add_post_par .add_post{
+    background: var(--card);
+    box-shadow: var(--prof-card-shdow);
+    border-radius: 5px;
+    padding: 40px 65px;
+    width: 600px;
+    gap: 20px;
+    color: var(--text);
+    opacity: 0;
+}
+.add_post_par .add_post .warn{
+    font-size: 0.6em;
+    font-weight: 300;
+    color: var(--text-fade);
+}
+.add_post_par .add_post label{
+    color: var(--label);
+    font-size: 13.5px;
+}
+.add_post_par .add_post .atc_fields input, .add_post_par .add_post .atc_fields textarea{
+    background: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid var(--menu_hover_link_bg);
+    padding: 5px 2px;
+    color: var(--text);
+    font-family: var(--formal);
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    transition: 0.4s ease-in-out;
+}
+.add_post_par .add_post .atc_fields textarea{
+    border: none;
+    background: var(--menu_hover_link_bg);
+    resize: none;
+    height: 150px;
+    border-bottom: 2px solid transparent;
+    padding: 5px;
+}
+.add_post_par .add_post .atc_fields textarea::-webkit-scrollbar{
+    width: 5px;
+}
+.add_post_par .add_post .atc_fields textarea::-webkit-scrollbar-thumb{
+    background: var(--text-fade);
+    border-radius: 100px;
+}
+.add_post_par .add_post .atc_fields input:focus{
+    border-color: var(--accent);
+}
+.add_post_par .add_post .atc_fields textarea:focus{
+    border-color: var(--accent);
+}
+
+.add_post_par .add_post .atc_fields{
+    gap: 5px;
+}
+.add_post_par .add_post .buttons{
+    gap: 20px;
+    align-items: center;
+    margin: 20px auto 0 auto;
+    justify-content: center;
+}
+.add_post_par .add_post .buttons .publish_b, .add_post_par .add_post .buttons .cancel_b{
+    font-family: var(--formal);
+    background: var(--accent);
+    border-radius: 3px;
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: 1px;
+    padding: 7px 20px;
+}
+.add_post_par .add_post .buttons .cancel_b{background: #999;}
+.add_post_par .add_post .buttons button:focus, .add_post_par .add_post .buttons button:hover{
+    text-shadow: 0 0 3px #fff;
+}
+
+
+
+
+/*--------------------------------------------------------RESPONSIVE*/
+@media screen and (max-width:700px){
+    .no_post_img{width: 180px;}
+    .no_post_msg_bl{font-size: 20px;}
+    .blog_main .share_btn{font-size: 12px;}
+    .add_post_par .add_post{width: 495px; padding: 25px 40px;}
+}
+@media screen and (max-width:600px) {
+    .blog_card{
+        max-width: 400px;
+        height: 200px;
+    }
+}
+@media screen and (max-width:500px) {
+    .breadcrumb_par .breadcrumb a{font-size: 13px;}
+    .no_post_wrap{padding: 20px;}
+    .add_post_par .add_post{width: 395px; padding: 25px 30px;}
+    .add_post_par .add_post .atc_fields input{padding: 3px;}
+    .add_post_par .add_post .atc_fields input, .add_post_par .add_post .atc_fields textarea{font-size: 12.8px;}
+    .add_post_par .add_post label{font-size: 12px;}
+    .add_post_par .add_post .buttons .publish_b, .add_post_par .add_post .buttons .cancel_b{font-size: 12px;}
+}
+@media screen and (max-width:400px) {
+    .breadcrumb_par .breadcrumb a{font-size: 14px; letter-spacing: 0;}
+    .no_post_img{width: 160px;}
+    .no_post_msg_bl{font-size: 18px;}
+    .add_post_par .add_post{width: 315px; padding: 25px 20px;}
+    .add_post_par .add_post .buttons{flex-direction: column; gap: 7px;}
+}
+@media screen and (max-width:320px){
+    .breadcrumb{align-items: center;}
+    .separator{font-size: 14px;}
+    .breadcrumb_par .breadcrumb a{
+        font-size: 13px;
+        letter-spacing: 0px;
+    }
+    .add_post_par .add_post{width: 250px; padding: 25px 10px;}
+}
+
+.flag{
+    display: none;
+}

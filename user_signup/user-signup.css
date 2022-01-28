@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
+:root{
+    --text : #444;
+    --formal : 'Poppins', sans-serif;
+    --fancy : 'Nanum Pen Script', cursive;
+    --theme : #f5f5f5;
+    --card : #fff;
+    --accent : #67B0D1;
+    --links : hsl(199, 100%, 61%);
+    --label : #a9a9a9;
+    --input-bg : #f5f5f5;
+    --shdow : 0 0 10px rgba(0, 0, 0, 0.2);
+}
+@media (prefers-color-scheme : dark){
+    :root{
+        --text : #fff;
+        --theme : #222;
+        --card : #333;
+        --label : #a9a9a9;
+        --input-bg : #505050;
+        --shdow : 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+}
+/*------------------------------------------------------------------RESET CSS*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--formal);
+}
+
+/*------------------------------------------------------------------GLOBAL CLASSES*/
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: var(--theme);
+}
+.flex-row{
+    display: flex;
+    align-items: center;
+}
+.flex-col{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+button{
+    cursor: pointer;
+    outline: none;
+    border: none;
+    padding: 7px 15px 8px 15px;
+}
+input{
+    outline: none;
+    border: none;
+    color: var(--text);
+    background: var(--input-bg);
+    padding: 5px 10px;
+    margin-bottom: 3px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    font-size: 13px;
+    transition: 0.2s ease-in-out;
+}
+input:active, input:focus, input:valid{
+    border-left: 3px solid var(--accent);
+}
+a{
+    outline: none;
+    text-decoration: none;
+    color: var(--links);
+    cursor: pointer;
+}
+.inactive{
+    opacity: 0;
+    pointer-events: none;
+}
+::selection{
+    background: hsl(190, 80%, 40%);
+    color: #fff;
+}
+
+/*------------------------------------------------------------------FORMS */
+.wrapper{
+    position: relative;
+    box-shadow: var(--shdow);
+    border-radius: 3px;
+    color: var(--text);
+    background: var(--card);
+    margin: 10px;
+    overflow: hidden;
+    transition: 0.3s ease-in-out;
+}
+.form-wrapper{
+    padding: 20px;
+    flex-direction: row-reverse;
+    gap: 20px;
+    transition: 0.3s ease-in-out;
+}
+.forms{
+    padding: 20px 20px;
+    width: 350px;
+    transition: 0.3s ease-in-out;
+}
+.si{
+    z-index: 100px;
+}
+.forms form{
+    gap: 5px
+}
+.forms h2{
+    text-transform: capitalize;
+    font-size: 25px;
+    font-weight: 600;
+}
+.forms .switch{
+    margin: 10px 0 10px 0;
+}
+.forms label{
+    color: var(--label);
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+.forms button{
+    background: var(--accent);
+    color: #fff;
+    font-size: 15px;
+    margin: 15px 0;
+    border-radius: 3px;
+    transition: 0.2s ease-in-out;
+}
+.forms button:hover,.forms button:focus{
+    text-shadow: 0 0 5px #fff;
+}
+.forms  span{
+    cursor: pointer;
+    letter-spacing: 1px;
+    color: var(--links);
+}
+.switch,.tnc,.f_pw{
+    font-size: 14px;
+}
+
+
+/*------------------------------------------------------------------IMAGES */
+.images-wrapper{
+    position: absolute;
+    inset: 0;
+    z-index: 100;
+    pointer-events: none;
+}
+.img{
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background: url(images/signin.jpg) no-repeat center center/cover;
+    filter: contrast(0.95);
+    transition: 0.3s ease-in-out;
+}
+.page_move{
+    transform: translateX(380px);
+    background: url(images/signup.jpg) no-repeat center center/cover;
+}
+
+@media screen and (max-width:900px) {
+    .inactive{
+        opacity: 0;
+        pointer-events: none;
+        position: absolute;
+        transform: translateX(500px);
+    }
+    .images-wrapper{display: none;}
+    .wrapper{min-width: 250px !important;}
+    .forms{min-width: 250px;}
+    .form-wrapper{height: unset;}
+    .forms form{
+        padding: 20px;
+        gap: 5px;
+    }
+    .forms h2{text-align: center;}
+}
+
+@media screen and (max-width:450px) {
+    body{
+        background: var(--card);
+    }
+    .wrapper{
+        margin: unset;
+        box-shadow: none;
+    }
+    .form-wrapper{
+        padding: unset;
+    }
+    .forms{
+        padding: 10px;
+        /* padding: 0; */
+        width: unset;
+    }
+    .switch,.tnc,.f_pw{
+        font-size: 15px;
+    }
+}

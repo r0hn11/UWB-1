@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Poppins:wght@100;200;300;400;500;600;700&family=Raleway:wght@100;200;300;400;500;600;700&display=swap');
+
+:root{
+    --bg:#fff;
+    --txt:#444;
+    --special:#67B0D1;
+    --shdow:rgba(0, 0, 0, 0.15);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    color: var(--txt);
+    transition: 0.2s ease-in-out;
+}
+
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg);
+}
+.flex{
+    display: flex;
+    align-items: center;
+}
+.flex-column{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* PAGE 1 */
+form{
+    height: 500px;
+    box-shadow: 0 0 16px var(--shdow);
+    border-radius: 5px;
+    padding: 20px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 35px;
+    transition: 0.2s ease-in-out;
+}
+#organisation{
+    gap: 20px;
+    align-items: center;
+}
+#logo{
+    background: url(../common_images/logo.jpeg) no-repeat center center/cover;
+    background-size: 120%;
+    box-shadow: 0 0 15px var(--shdow);
+    min-height: 60px;
+    min-width: 60px;
+    border-radius: 999px;
+}
+#name{
+    color: #999;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 25px;
+    letter-spacing: 0.5px;
+}
+#title{
+    color: var(--txt);
+    font-size: 25px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: 0.2s ease-in-out;
+}
+#user_input{
+    margin-top: 16px;
+    letter-spacing: 1px;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+#user_input>input{
+    position: relative;
+    padding: 8px;
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    outline: none;
+    border: none;
+    width: 100%;
+    background: none;
+    border-bottom: 3px solid rgb(200, 200, 200);
+    z-index: 2;
+}
+#user_input>label{
+    font-size: 18px;
+    color: var(--txt);
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    transition: 0.2s ease-in-out;
+    opacity: 0.5;
+    z-index: 1;
+}
+#user_input>input:focus~label,#user_input>input:valid~label{
+    transform: translateY(-30px);
+    font-size: 15px;
+    color: var(--special);
+    opacity: 1;
+}
+#underline{
+    position: absolute;
+    bottom: 0;
+    height: 3px;
+    width: 100%;
+}
+#underline::before{
+    content: '';    
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: var(--special);
+    transform: scaleX(0);
+    transition: 0.2s 0.3s ease-in-out;
+    z-index: 3;
+}
+#user_input>input:focus~#underline::before,#user_input>input:valid~#underline::before{
+    transform: scaleX(1);
+}
+#description{
+    font-size: 0.75em;
+    opacity: 0.5;
+    margin: 0.5em 0;
+}
+
+#btn_wrapper{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+#btn_wrapper>button{
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 1px;
+    background: var(--special);
+    border: none;
+    border-radius: 5px;
+    color: var(--bg);
+    transition: 0.2s ease-in-out;
+}
+#btn_wrapper>button:hover, #btn_wrapper>button:focus{
+    text-shadow: 0 0 5px #fff;
+}
+
+/* PAGE 2 */
+#top{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1.5em;
+    gap: 1em;
+    background: var(--bg);
+    box-shadow: 0 0 15px var(--shdow);
+    z-index: 10;
+}
+#dscr{
+    font-size: 25px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    color: var(--txt);
+}
+#details{
+    border-radius: 10px;
+    box-shadow: 0 0 16px var(--shdow);
+    min-width: 600px;
+    justify-content: center;
+}
+#cert_icon{
+    background: url(../images/crt.png) no-repeat center center/cover;
+    filter: brightness(10) saturate(10) hue-rotate(-20deg);
+    width: 70px;
+    height: 85px;
+}
+#main{
+    padding: 20px 30px;
+    border-radius: 10px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    background: var(--special);
+    gap: 40px;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+}
+#content>div{
+    color: var(--bg);
+}
+#content>div:nth-child(2){
+    font-weight: 400;
+    font-size: 15px;
+}
+#cert_desc{
+    padding: 20px 30px;
+    justify-content: center;
+    font-size: 18px;
+    letter-spacing: 1px;
+    color: var(--txt);
+}
+#username,#course{
+    font-weight: 600;
+}
+#cid{
+    text-transform: uppercase;
+}
+
+/* RESPONSIVE */
+
+@media screen and (max-width:500px) {
+    form{
+        padding: 20px 10px;
+    }
+    #name{
+        text-align: center;
+        font-size: 18px;
+    }
+    #organisation{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #title{
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-size: 20px;
+    }
+    #btn_wrapper{
+        justify-content: center;
+    }
+    #user_input>input{
+        text-align: center;
+        width: 80%;
+    }
+    #user_input>label{
+        text-align: center;
+        right: 0;
+        font-size: 17px;
+    }
+    #underline{
+        width: 80%;
+    }
+
+    #top{
+        justify-content: center;
+        align-items: center;
+        padding: 20px 0;
+    }
+    #dscr{
+        font-size: 20px;
+    }
+}
+@media screen and (max-width:700px) {
+    #details{
+        margin: 0 10px;
+        min-width: 300px;
+    }
+    #main{
+        flex-direction: column;
+        gap: 10px;
+        font-size: 17px;
+    }
+    #cert_icon{
+        height: 60px;
+        width: 60px;
+        background-size: 90%;
+    }
+    #cert_desc{
+        font-size: 16px;
+    }
+}
+@media screen and (max-width:400px) {
+    form{
+        box-shadow: none;
+    }
+    #details{
+        margin: 0;
+        border-radius: 0;
+        box-shadow: none;
+    }
+    #main{
+        border-radius: 0;
+    }
+}

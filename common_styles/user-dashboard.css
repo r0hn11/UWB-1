@@ -1,0 +1,305 @@
+.db_wrap_par input::-webkit-input-placeholder{
+    color: var(--text-fade);
+    font-size: 12px;
+    padding: 5px;
+}
+.db_wrap_par input{
+    --text-fade : rgba(68, 68, 68, 0.2);
+    outline: none;
+    background: var(--card);
+    border: none;
+    border-bottom: 1.5px solid var(--text-fade);
+    font-family: var(--formal);
+    letter-spacing: 1px;
+    color: var(--links);
+    display: none;
+    margin-bottom: -2px;
+}
+@media (prefers-color-scheme : dark){
+    .db_wrap_par input{--text-fade : rgba(255, 255, 255, 0.2);}
+}
+.db_wrap_par{
+    padding: 0 var(--padd_h);
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    background: var(--bg-overlay);
+    backdrop-filter: saturate(0);
+    position: fixed;
+    inset: 0;
+    z-index: 990;
+    transition: 0.2s ease-in-out;
+}
+.db_wrap{
+    gap: 20px;
+    width: 650px;
+    background: var(--card);
+    box-shadow: var(--shdow);
+    border-radius: 5px;
+    padding: 20px 40px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: var(--text);
+    align-items: flex-start;
+    justify-content: flex-start;
+    border-top: 5px solid var(--accent);
+    border-bottom: 5px solid var(--accent);
+    position: relative;
+    transition: 0.3s ease-in-out;
+    transform-origin: top right;
+}
+.db_wrap .fa-times{
+    cursor: pointer;
+    color: #fff;
+    background: var(--warn-bg);
+    font-size: 18px;
+    padding: 8.04px 9.7px;
+    padding-left: 11px;
+    border-radius: 50%;
+    position: absolute;
+    right: -15px;
+    top: 5px;
+    box-shadow: var(--shdow);
+}
+.db_wrap .fa-times:hover{
+    filter: saturate(3);
+}
+
+.db_wrap .main_db{
+    gap: 20px;
+}
+.db_wrap .main_db .side_db{
+    gap: 10px;
+}
+.db_wrap .main_db .profile{
+    min-height: 80px;
+    min-width: 80px;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    position: relative;
+    filter: saturate(0.8) ;
+}
+.db_wrap .main_db .profile .profile_picture{
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    border-radius: 50%;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    z-index: 99;
+    transition: 0.2s ease-in-out;
+}
+.db_wrap .main_db .profile .ed_avt{
+    cursor: pointer;
+    font-size: 20px;
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(68, 68, 68, 0.5);
+    color: #fff;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s ease-in-out;
+    z-index: 100;
+}
+.db_wrap .main_db .edit_avatars{
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: var(--card);
+    box-shadow: var(--shdow);
+    border-radius: 5px;
+    gap: 15px;
+    z-index: 100;
+    position: absolute;
+    border: 2px solid var(--text-fade);
+}
+.db_wrap .main_db .edit_avatars .ea_ttl, .db_wrap .main_db .edit_avatars .ea_cncl{
+    font-size: 14px;
+    align-self: flex-start;
+    font-weight: 500;
+}
+.db_wrap .main_db .edit_avatars .ea_cncl{
+    cursor: pointer;
+    color: var(--links);
+}
+.db_wrap .main_db .edit_avatars .ea_icons{
+    display: grid;
+    grid-template-columns: repeat(4,auto);
+    row-gap: 15px;
+    column-gap: 15px;
+}
+.db_wrap .main_db .edit_avatars .ea_icons .avatars{
+    cursor: pointer;
+    border-radius: 50%;
+    min-height: 70px;
+    min-width: 70px;
+    height: 70px;
+    width: 70px;
+    border: 3px solid transparent;
+    position: relative;
+    opacity: 0;
+    transition: 0.4s ease-in-out;
+}
+
+.db_wrap .main_db .edit_avatars .ea_icons .avatars:hover{
+    filter: saturate(1);
+    border: 3px solid var(--valid-bg);
+}
+.db_wrap .extras{
+    gap: 10px;
+}
+.db_wrap .field{
+    color: var(--text-fade);
+}
+.db_wrap .extras .blogs .no_post_msg{
+    color: var(--warn-bg);
+    margin: 10px 0;
+}
+.db_wrap .extras .blogs_table{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 20px 0;
+    max-height: 200px;
+    border-radius: 5px;
+    background: #ddd;
+    display: none;
+    position: relative;
+    overflow-y: hidden;
+}
+.db_wrap .extras .blogs_table::-webkit-scrollbar{
+    width: 0.4em;
+    height: 0.4em;
+    background: transparent;
+}
+.db_wrap .extras .blogs_table::-webkit-scrollbar-thumb{
+    border-radius: 100px;
+    background: #999;
+}
+.db_wrap .extras .blogs_table::-webkit-scrollbar-thumb:hover{
+    filter: saturate(5);
+}
+.db_wrap .extras table{
+    border-collapse:collapse;
+    background: #e8e8e8;
+    border-bottom-right-radius: 5px;
+}
+.db_wrap .extras table thead{
+    background: #aaa;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 0 15px rgba(68, 68, 68, 0.35);
+}
+.db_wrap .extras table th{
+    text-align: left;
+    color: var(--card);
+    padding: 10px 10px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.db_wrap .extras table tr{
+    font-size: 11px;
+    color: #444;
+}
+.db_wrap .extras table tr:nth-of-type(2n){
+    background: #efefef;
+}
+.db_wrap .extras table tr td{
+    padding: 8px 10px;
+}
+.db_wrap .btns{
+    gap: 20px;
+}
+.db_wrap .btns .edit, .db_wrap .btns .save, .db_wrap .btns .cancel{
+    display: inline;
+    background: none;
+    font-family: var(--formal);
+    font-size: 14px;
+    letter-spacing: 1px;
+    padding: 3px;
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--links);
+    position: relative;
+    z-index: 2;
+}
+.db_wrap .btns .save, .db_wrap .btns .cancel{display: none;}
+.db_wrap .btns .edit i{
+    margin: 0 5px;
+}
+.db_wrap .btns .edit::after, .db_wrap .btns .save::after, .db_wrap .btns .cancel::after{
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: var(--links);
+    opacity: 0.7;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: 0.2s ease-in-out;
+    z-index: -1;
+}
+.db_wrap .edit:hover::after, .db_wrap .save:hover::after, .db_wrap .cancel:hover::after{
+    transform: scaleX(1);
+}
+
+
+@media screen and (max-width:700px) {
+    .db_wrap .main_db{
+        flex-direction: column;
+    }
+}
+@media screen and (max-width:600px){
+    .db_wrap .main_db .edit_avatars .ea_icons{
+        grid-template-columns: repeat(3,auto);
+    }
+    .db_wrap{
+        align-items: center;
+        font-size: 0.9em;
+    }
+    .main_db, .extras{
+        align-items: center;
+    }
+    .name,.location, .bio, .mail, .blogs{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .edit_fields, .edit_value{text-align: center;}
+}
+@media screen and (max-width:500px){
+    .db_wrap_par{padding: 20px; justify-content: center;}
+    .db_wrap{font-size: 0.8em;}
+    .db_wrap .btns{
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+    .db_wrap .btns .edit, .db_wrap .btns .save, .db_wrap .btns .cancel{
+        font-size: 13px;
+    }
+    #user_mail{
+        max-width: 30ch;
+        overflow-x: scroll;
+    }
+}
+@media screen and (max-width:350px){
+    .db_wrap{padding: 20px;}
+    .db_wrap .main_db .edit_avatars .ea_icons{
+        grid-template-columns: repeat(2, auto);
+    }
+    .db_wrap .fa-times{transform: scale(0.8); right: 2px;}
+    #user_mail{max-width: 20ch;}
+    .db_wrap_par input{width: 85%;}
+}

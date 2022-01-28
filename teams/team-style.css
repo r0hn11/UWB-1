@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,100;1,200;1,300;1,400&display=swap');
+body{
+    font-family: var(--formal);
+    background: var(--theme);
+}
+.hidden_up{
+    opacity: 0;
+    transform: translateY(-50px);
+}
+.hidden_side{
+    opacity: 0;
+}
+.hidden_down{
+    opacity: 0;
+    transform: translateY(50px);
+}
+.team_par a:hover{background: transparent;}
+/*--------------------------------------------------------BREADCRUMB*/
+.breadcrumb_par{
+    justify-content: center;
+    background: var(--breadcrumb-bg);
+    box-shadow: var(--breadcrumb-shdow);
+}
+.breadcrumb{
+    justify-content: flex-start;
+    padding: 10px var(--padd_h);
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    color: var(--text);
+    width: 100%;
+    max-width: 1920px;
+}
+.breadcrumb_par .breadcrumb a{font-size: 15px;}
+.breadcrumb_par .breadcrumb .home a{
+    color: var(--accent);
+    padding: 0;
+}
+.breadcrumb_par .breadcrumb .tm a, .breadcrumb_par .breadcrumb .td a{
+    color: var(--text);
+    padding: 0;
+}
+.separator{margin: 0 5px;}
+.breadcrumb_par .breadcrumb a:hover, .breadcrumb_par .breadcrumb a:focus{
+    text-decoration: underline;
+    background: transparent;
+}
+
+/*--------------------------------------------------------TEAM SECTION*/
+.team_par{
+    justify-content: center;
+}
+.team_main{
+    width: 100%;
+    max-width: 1920px;
+    width: 100%;
+    justify-content: center;
+    padding: 50px var(--padd_h);
+}
+.sect_ttl{
+    letter-spacing: 2px;
+    padding: 5px;
+    text-align: center;
+    color: var(--text);
+    font-size: 25px;
+    position: relative;
+}
+.sect_ttl::after{
+    content: '';
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    width: 100%;
+    background: url(../common_images/capsule.png) no-repeat center center/contain;
+    z-index: -1;
+}
+@media (prefers-color-scheme: dark){
+    .sect_ttl::after{opacity: 0.1;}
+}
+.profiles{
+    align-items: center;
+    justify-content: center;
+    padding: 50px 0;
+    gap: 30px;
+    /* flex-wrap: wrap; */
+}
+.profiles .pr_card{
+    color: var(--text);
+    align-items: center;
+    background: var(--card);
+    box-shadow: var(--prof-card-shdow);
+    padding: 25px 25px 22px 25px;
+    /* width: 500px; */
+    min-width: 350px;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+}
+.profiles .pr_card .picture{
+    margin-bottom: 15px;
+    height: 130px;
+    width: 130px;
+    border-radius: 50%;
+    filter: contrast(0.8);
+    box-shadow: inset 0 0 15px rgba(68, 68, 68, 0.7);
+}
+.profiles .pr_card .name{
+    text-align: center;
+    font-size: 20px;
+    text-transform: capitalize;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: -3px;
+}
+.profiles .pr_card .designation{
+    color: var(--sub-txt);
+    letter-spacing: 1px;
+    text-align: center;
+    font-size: 14px;
+    max-width: 30ch;
+    margin-top: 5px;
+}
+.profiles .pr_card .social{
+    margin-top: 5px;
+}
+.profiles .pr_card .social ul{
+    gap: 2px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.profiles .pr_card .social ul li a{
+    color: var(--accent);
+    font-size: 30px;
+    padding: 0;
+    transition: 0.2s ease-in-out;
+    padding: 5px;
+}
+.profiles .pr_card .social ul li a:hover, .profiles .pr_card .social ul li a:focus{
+    filter: saturate(3) drop-shadow(0 0 2px rgba(160, 227, 255, 0.4));
+}
+.xperts .profiles{
+    gap: 50px;
+}
+.psychologists, .psy_trainees{
+    justify-content: center;
+    gap: 30px;
+}
+.pr_card:hover{
+    transform: translateY(-3px);
+}
+
+
+.sc .picture{background: url(images/profile_pics/SC.jpg) no-repeat center center/cover;}
+.bb .picture{background: url(images/profile_pics/BB.jpg) no-repeat center center/cover;}
+.np .picture{background: url(images/profile_pics/NP.jpg) no-repeat center center/cover;}
+.nt .picture{background: url(images/profile_pics/NT.jpg) no-repeat center center/cover;}
+.ms .picture{background: url(images/profile_pics/MS.jpg) no-repeat center center/cover;}
+.aks .picture{background: url(images/profile_pics/AKS.jpg) no-repeat center center/cover;}
+.ar .picture{background: url(images/profile_pics/AR.jpg) no-repeat center center/cover;}
+.bs .picture{background: url(images/profile_pics/BS.jpg) no-repeat center center/cover;}
+.as .picture{background: url(images/profile_pics/AS.jpg) no-repeat center center/cover;}
+.sg .picture{background: url(images/profile_pics/SG.jpg) no-repeat center center/cover;}
+.st .picture{background: url(images/profile_pics/ST.jpg) no-repeat center center/cover;}
+.at .picture{background: url(images/profile_pics/AT.jpg) no-repeat center center/cover;}
+
+
+
+/*--------------------------------------------------------RESPONSIVE*/
+@media screen and (max-width:1200px) {
+    .profiles{flex-wrap: wrap;}
+    .psychologists, .psy_trainees{flex-wrap: wrap;}
+    .profiles .pr_card .name{font-size: 18px;}
+}
+@media screen and (max-width:600px) {
+    .profiles .pr_card{
+        width: 350px;
+    }
+    .profiles .pr_card .picture{
+        height: 120px;
+        width: 120px;
+    }
+}
+@media screen and (max-width:500px) {
+    *{
+        min-width: unset;
+    }
+    .breadcrumb_par .breadcrumb a{font-size: 13px;}
+    .sect_ttl{font-size: 23px;}
+    .profiles .pr_card .name{font-size: 16px;}
+    .profiles .pr_card .designation{font-size: 13px;}
+}
+@media screen and (max-width:400px) {
+    .profiles .pr_card{
+        padding: 20px 0;
+        min-width: unset;
+        width: 300px;
+    }
+    .profiles .pr_card .social ul{
+        display: grid;
+        grid-template-columns: repeat(3,auto);
+        row-gap: 0px;
+        column-gap: 20px;
+    }
+    .profiles .pr_card .social ul li{padding: 0;}
+    .profiles .pr_card .social ul li a{font-size: 25px;}
+    .team_main{padding: 30px 0;}
+    .breadcrumb_par .breadcrumb a{font-size: 12px; letter-spacing: 0;}
+    .sect_ttl{font-size: 20px;}
+}
+@media screen and (max-width:310px){
+    .breadcrumb{align-items: center;}
+    .separator{font-size: 12px;}
+    .breadcrumb_par .breadcrumb a{
+        font-size: 10px;
+        letter-spacing: 0px;
+    }
+    .profiles .pr_card{
+        padding: 20px 0;
+        width: 250px;
+    }
+}
