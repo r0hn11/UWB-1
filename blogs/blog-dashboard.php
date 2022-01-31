@@ -1,3 +1,17 @@
+<?php
+    $host="localhost";
+    $username="root";
+    $pass="";
+    $db="uwb";
+    $conn=mysqli_connect($host,$username,$pass,$db);
+    if(!$conn){
+        die("Connection failed: " . mysqli_connect_error());
+    }
+    $sql = "select * from blog where bviewed = 0 order by date ASC";
+    $result = $conn->query($sql) or die($conn->error);
+    session_start();
+   
+     ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,15 +23,8 @@
     <link rel="stylesheet" href="../common_styles/navbar.css">
     <link rel="stylesheet" href="blog-dashboard-style.css">
 </head>
+
 <body>
-    <div class="preloader">
-        <div class="pre_wrap">
-            <div class="circle"></div>
-            <div class="pre_logo">uwb</div>
-            <div class="fo">foundation</div>
-            <div class="ad">Gwalior, MP</div>
-        </div>
-    </div>
     <div class="menu_icon flex-col">
         <div class="bars"></div>
         <div class="bars"></div>
@@ -29,10 +36,10 @@
             <div class="navigation_bl flex-col">
                 <div class="searchbar flex-row">
                     <input type="search" name="" id="search_blogs" placeholder="search topic, date, user">
-                    <button><i class="fas fa-search"></i></button>
+                    <a href="#query"><i class="fas fa-search"></i></a>
                 </div>
                 <div class="options flex-row">
-                    <a href="#pending "class="active_list">Pending</a>
+                    <a href="#pending" class="active_list">Pending</a>
                     <a href="#rev">Reviewed</a>
                 </div>
             </div>
@@ -56,18 +63,26 @@
                     <li class="d3 datewise">
                         <div class="older dates">older</div>
                         <div class="older_blogs pending_blogs">
-
+                            <!-- // Card Format for Outline -->
+                            <?php 
+                            while($row=mysqli_fetch_assoc($result))
+                            {
+                                ?>
                             <div class="blog_card flex-col">
-                                <div class="a_ttl">new blogs</div>
-                                <div class="a_det">by <span class="a_name">someone blogger</span>, <span class="a_date">25 december</span></div>
-                                <a href="blog-dashboard2.html">read more</a>
+                                <div class="a_ttl"><?php echo $row['btitle'] ?></div>
+                                <div class="a_det">by <span class="a_name"><?php echo $row['uname'] ?></span>, <span class="a_date"><?php echo $row['date']?></span></div>
+                                <a href="blog-dashboard2.php?id=<?php echo $row['bid'];?>">read more</a>
                             </div>
+                            <?php
+                            }
+                            ?>
+                        </form>
+            
 
                         </div>
                     </li>
 
                 </ul>
-
                 <ul class="reviewed_li bl_list">
                     <li class="result_blogs">
                         
@@ -76,7 +91,7 @@
                             <div class="flex-col">
                                 <div class="a_ttl">new blog</div>
                                 <div class="a_det">by <span class="a_name">someone blogger</span>, <span class="a_date">25 december</span></div>
-                                <a href="blog-dashboard2.html">read more</a>
+                                <a href="#rdm">read more</a>
                             </div>
                         </div>
 
@@ -115,8 +130,7 @@
                     <button type="submit" class="publish_b">Publish</button>
                     <button type="reset" class="cancel_b">Cancel</button>
                 </div>
-                
-            </form>
+             </form>
         </div>
 
         <div class="select_post_par flex-row inactive2">
@@ -128,17 +142,18 @@
         <div class="sucs inactive2">Success !</div>
         <div class="right_wrap flex-col inactive2">
             <div class="blog_complete flex-col">
+
                 <div class="top flex-col">
-                    <div class="ttl_page">Lorem, ipsum.</div>
-                    <div class="auth_page">by <span class="authname_page">asdasd</span>, <span class="authdate_page">asdasd</span></div>
+                    <div class="ttl_page"></div>
+                    
+                    <div class="auth_page">by <span class="authname_page"></span>, <span class="authdate_page"></span></div>
                     <div class="desc_page">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam rem suscipit consequatur sit animi rerum obcaecati officiis repellat perferendis iure placeat expedita impedit ducimus, reiciendis nobis culpa et quibusdam voluptatum! Voluptatum illo fuga incidunt ipsum perferendis nemo velit? Distinctio eveniet quia veniam sed maxime quo modi? Eaque ab non laudantium voluptas sunt maiores vero illo sint? Repellat repellendus, commodi ea similique, recusandae odio nam esse quasi magnam sequi a. Consectetur incidunt odio tempora, inventore molestiae soluta magni illum architecto quae vitae amet veniam, laborum facilis distinctio sed pariatur nisi placeat eum vel enim. Quaerat quas, nemo fuga culpa quidem debitis!
+                        
                     </div>
                 </div>
+                
                 <div class="story_page">
-                    <p class="main_story">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia debitis vero mollitia incidunt, officia est, ipsa molestias tempora, pariatur facere voluptatum aliquam! Eligendi perferendis voluptatem, quas praesentium harum, natus adipisci libero nesciunt quae veniam possimus, velit sint! Quaerat voluptatem, similique libero molestiae accusantium ea unde vitae. Perspiciatis dolore at quidem ad dignissimos quibusdam obcaecati provident itaque repudiandae, cum a veritatis delectus molestias incidunt quo voluptatibus qui! Cumque perspiciatis eos exercitationem magni eius, ex facilis voluptates nemo consequatur obcaecati reprehenderit veniam. Nihil, obcaecati eum, accusamus deserunt quam maxime libero fugit quia ab, architecto dolorum vero magnam perspiciatis praesentium? Perferendis vel suscipit optio possimus quasi quo harum voluptate nobis error quaerat fuga ex facere, ipsum iure quod, necessitatibus assumenda, nam voluptatem neque tenetur nihil debitis placeat. Maiores doloribus, itaque dolorem doloremque sunt quam beatae, necessitatibus perspiciatis voluptatibus recusandae ratione placeat, saepe voluptatum! Explicabo eius libero magnam quidem quos ducimus iure? Neque velit soluta voluptate. Optio exercitationem soluta labore dignissimos quidem facere mollitia quam accusamus officiis iure eius autem placeat maxime eveniet magnam commodi, nobis animi voluptate debitis, ullam, nostrum libero quasi asperiores rem? Qui optio nobis blanditiis saepe iusto cumque, possimus enim excepturi, magnam autem minima dicta, modi provident consequatur itaque numquam?
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat assumenda omnis aperiam temporibus molestiae. Accusamus dolorem nostrum sequi quibusdam voluptates eaque mollitia, odio impedit, ipsam sint natus id cupiditate omnis exercitationem excepturi a magnam. Labore fugiat magni fugit dolorum autem officia ducimus mollitia ad nobis saepe, veritatis qui omnis officiis a repudiandae, eaque ullam accusantium delectus ratione? Accusantium, error est pariatur inventore aliquid saepe molestias suscipit, repudiandae sit veniam natus voluptatibus distinctio atque odio corporis expedita quia. Nisi quisquam illo voluptates quos facilis. Reprehenderit nam expedita eligendi deserunt, similique optio et eveniet perspiciatis labore, in perferendis nulla voluptates recusandae dolorum quisquam odit? Sunt harum consectetur at nobis molestias non ex sint tempora deleniti, autem alias praesentium amet exercitationem eaque possimus nam explicabo itaque esse pariatur, placeat aut? Illo sequi illum debitis tempore est eius alias consequuntur quam itaque quis accusamus accusantium, voluptatum placeat, eaque aliquam unde odio consectetur quia quasi cum quidem. Voluptatum recusandae inventore aliquam labore voluptatibus et perspiciatis officiis esse laborum ut. Magni officia corporis, molestias optio doloremque aperiam obcaecati quae veniam explicabo eligendi. Eaque adipisci, quisquam laboriosam, illum nihil cum suscipit quia facilis eos amet totam minus perspiciatis ad harum dolorem quis quae deleniti sunt. Ab, rerum.
+                    <p class="main_story">story
                     </p>
                 </div>
             </div>
@@ -157,23 +172,4 @@
 </body>
 <script src="https://kit.fontawesome.com/7c7b8993a0.js" crossorigin="anonymous"></script>
 <script src="blog-dashboard.js"></script>
-<script>
-    //----------------PRELOADER
-    let loader = document.querySelector('.preloader');
-    let bdy = document.getElementsByTagName('body')[0];
-
-    bdy.style.overflowY = 'hidden';
-    window.addEventListener('load' ,function(){
-        window.scrollTo({top:0, behavior: "smooth"});
-        setTimeout(() => {
-            loader.style.opacity = '0';
-            loader.style.pointerEvents = 'none';
-            setTimeout(() => {
-                loader.style.display = 'none';
-                bdy.style.overflowY = 'auto';
-            }, 500);
-        }, 2500);
-    });
-
-</script>
 </html>
