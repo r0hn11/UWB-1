@@ -8,7 +8,11 @@
         die("Connection failed: " . mysqli_connect_error());
     }
     $sql = "select * from blog where bviewed = 0 order by date ASC";
+    $sql2 = "select * from blog where bviewed = 1 order by date ASC";
+
     $result = $conn->query($sql) or die($conn->error);
+    $result2 = $conn->query($sql2) or die($conn->error);
+
     session_start();
    
      ?>
@@ -83,17 +87,26 @@
                     </li>
 
                 </ul>
+                
                 <ul class="reviewed_li bl_list">
+                <?php
+                        while($row=mysqli_fetch_assoc($result2))
+                            {
+                                ?>
                     <li class="result_blogs">
                         
                         <div class="result_card">
+                            
                             <div class="check"></div>
                             <div class="flex-col">
-                                <div class="a_ttl">new blog</div>
-                                <div class="a_det">by <span class="a_name">someone blogger</span>, <span class="a_date">25 december</span></div>
-                                <a href="#rdm">read more</a>
+                                <div class="a_ttl"><?php echo $row['btitle'] ?></div>
+                                <div class="a_det">by <span class="a_name"><?php echo $row['uname'] ?></span>, <span class="a_date"><?php echo $row['date']?></span></div>
+                                <a href="blog-dashboard2.php?id=<?php echo $row['bid'];?>">read more</a>
                             </div>
                         </div>
+                        <?php
+                            }
+                            ?>
 
                     </li>
                 </ul>
@@ -130,7 +143,7 @@
                     <button type="submit" class="publish_b">Publish</button>
                     <button type="reset" class="cancel_b">Cancel</button>
                 </div>
-             </form>
+             <!-- </form> -->
         </div>
 
         <div class="select_post_par flex-row inactive2">

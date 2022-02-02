@@ -20,9 +20,12 @@
 
     <?php
     $ubid = $_GET['id'];
+    $ubid2 = $_GET['id'];
     $sql = "select * from blog where `bviewed`= 0 order by date ASC";
+    $sql2 = "select * from blog where bviewed = 1 order by date ASC";
     
     $result = $conn->query($sql) or die($conn->error);
+    $result2 = $conn->query($sql2) or die($conn->error);
     $res=mysqli_query($conn,$sql);
     $row = mysqli_fetch_array($res);
     
@@ -32,8 +35,12 @@
 	// $data=mysqli_fetch_array($res);
 
     $myqu = "select * from blog where `bid`='$ubid'";
+    $myqu2 = "select * from blog where `bid`='$ubid2'";
     $mysql = mysqli_query($conn,$myqu);
+    $mysql2 = mysqli_query($conn,$myqu2);
+
     $myrow = mysqli_fetch_array($mysql);
+    $myrow2 = mysqli_fetch_array($mysql2);
      ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -127,16 +134,24 @@
                 </ul>
 
                 <ul class="reviewed_li bl_list">
+                <?php
+                        while($rowx=mysqli_fetch_assoc($result2))
+                            {
+                                ?>
                     <li class="result_blogs">
                         
                         <div class="result_card">
+                        
                             <div class="check"></div>
                             <div class="flex-col">
-                                <div class="a_ttl">new blog</div>
-                                <div class="a_det">by <span class="a_name">someone blogger</span>, <span class="a_date">25 december</span></div>
-                                <a href="blog-dashboard2.php">read more</a>
+                                <div class="a_ttl"><?php echo $rowx['btitle'] ?></div>
+                                <div class="a_det">by <span class="a_name"><?php echo $rowx['uname'] ?></span>, <span class="a_date"><?php echo $rowx['date']?></span></div>
+                                <a href="blog-dashboard2.php?id=<?php echo $rowx['bid']?>">read more</a>
                             </div>
                         </div>
+                        <?php
+                            }
+                            ?>
 
                     </li>
                 </ul>
@@ -199,19 +214,19 @@
                     </p>
                 </div>
             </div>
+            
             <form class="buttons flex-row" method="post">
             <button type="submit" id="pass" name="app" value="app" class="button" ><i class="fas fa-check"></i></input>
             
                 <button type="reset" id="reject" name="reject"><i class="fas fa-times"></i></button>
-                <input type="text" name="rsn" id="reason" placeholder="mention reason" class="inactive2" required>
+                <input type="text" name="rsn" id="reason" placeholder="mention reason" class="inactive2">
                 <button type="submit" id="confirm_reject" class='inactive2' name="confirm" value="confirm" class=>Confirm</input></button>
                 <button type="button" id="add_post"><i class="fas fa-plus"></i></button>
-                <button type="button" id="reveal"><i class="fas fa-chevron-up"></i></button>
-                
-            </form>
-            <!-- <form class="buttons flex-row" method="post">
+                <button type="button" id="reveal"><i class="fas fa-chevron-up"></i></button>                
+            <!-- </form>
+            <form class="buttons flex-row" method="post"> 
             <button type="submit" id="pass" name="app" value="app" class="button" ><i class="fas fa-check"></i></input>
-                        </form> -->
+            </form>  -->
             
         </div>
         <button type="button" id="add_post_main"><i class="fas fa-plus"></i></button>
@@ -228,10 +243,49 @@
 
       
     if(isset($_POST['app'])){
-        echo "This is button1";
+        $status2= 1;
+        $viewed2 = 1 ;
+        // $comment=$_POST['comment'];
+        // $id=$_POST['id'];
+        
+        $query4="UPDATE `blog` set `bviewed`='$viewed2',`bstatus`='$status2' where `bid`='$ubid'";
+        
+        $res4=mysqli_query($conn,$query4);
+        
+        if($res4){
+            $_SESSION['success']="Row Updated successfully!";
+            echo "<script>window.location.href = 'blog-dashboard.php' </script>";
+            
+        }else{
+            echo "
+            <script>
+                alert('Data not updated');
+            </script>
+            ";
+        }
         }
     if(isset($_POST['confirm'])){
-        echo "This is button2";
+        $comment = $_POST['rsn'];
+        $status = 0;
+        $viewed = 1 ;
+        // $comment=$_POST['comment'];
+        // $id=$_POST['id'];
+        
+        $query3="UPDATE `blog` set `bviewed`='$viewed',`bstatus`='$status',`comment`='$comment' where `bid`='$ubid'";
+        
+        $res3=mysqli_query($conn,$query3);
+        
+        if($res3){
+            $_SESSION['success']="Row Updated successfully!";
+            echo "<script>window.location.href = 'blog-dashboard.php' </script>";
+            
+        }else{
+            echo "
+            <script>
+                alert('Data not updated');
+            </script>
+            ";
+        }
         }
 
 ?>
