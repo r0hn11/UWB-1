@@ -209,8 +209,8 @@
                 <a id="load_more" href="blogs-all.html">load more</a>
 
                 <!-- add post -->
-                <div class="add_post_par flex-col">
-                    <form class="add_post flex-col" id="b_form" action="blog-addpost.php" method="post">
+                <div class="add_post_par flex-col" id='add_post'>
+                    <form class="add_post flex-col" id="b_form">
                         <div class="attl atc_fields flex-col">
                             <label for="a_title">Article title</label>
                             <input type="text" name="atcl_title" id="a_title" required>
@@ -229,7 +229,7 @@
                         </div>
                         <div class="warn"><strong>Note :</strong> The articles that you publish are reviewed by our team before publishing. Inappropiate articles will not be published.</div>
                         <div class="buttons flex-row">
-                            <button type="submit" class="publish_b" id="submit">Publish</button>
+                            <button type="submit" class="publish_b" id="publish_b">Publish</button>
                             <button type="reset" class="cancel_b">Cancel</button>
                         </div>
                     </form>
@@ -283,40 +283,30 @@
 
 <script type='text/javascript'>
 
-    /*  thapa
     $(document).ready(function(){
-        var form = $('#b_form');
-
-        $('#submit').click(function(){
+      
+        $("#publish_b").on("click",function(e){
+            e.preventDefault();
+            var a_title = $("#a_title").val();
+            var a_desc = $("#a_desc").val();
+            var a_story = $("#a_story").val();
+            var a_tags = $("#a_tags").val();
 
             $.ajax({
-                url: form.attr("action"),
-                type: 'post',
-                data: $("#submit input").serialize(),
-
-                success: function(data){
-                    console.log(data);
+                url: "blog-addpost.php",
+                type: "POST",
+                data: {a_title:a_title,a_desc:a_desc,a_story:a_story,a_tags:a_tags},
+                success:function(data){
+                    if(data == 1){
+                    $("#b_form").trigger("reset");
+                }
+                    else{
+                        alert("Could not enter data");
+                    }
                 }
             });
-
-        });
-    }); */
-
-
-    $(document).ready(function(){
-        function loadTable(){
-            $.ajax({
-                url : "blog-addpost.php",
-                type : "POST",
-                success : function(data){
-                    console.log(data);
-                }
-            });
-        }
-        loadTable();
+        })
     });
 
 </script>
-
-
 </html>
