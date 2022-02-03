@@ -3,6 +3,7 @@
     if(!isset($_SESSION['aname'])){
         header('location: admin-login.html');
     }
+    
 ?>
 <!DOCTYPE html>
 <html>

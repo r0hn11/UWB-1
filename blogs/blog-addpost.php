@@ -16,7 +16,7 @@ $a_story = $_POST["a_story"];
 $a_tags = $_POST["a_tags"];
 $date = date("Y-m-d");
 
- $sql = "insert into blog(bid,uid,uname,btitle, bdescription, bstory, btags,bstatus,bviewed,date) values('','','','$a_title','$a_desc','$a_story','$a_tags','0','0','$date')";
+ $sql = "insert into blog(bid,uid,uname,btitle, bdescription, bstory, btags,bstatus,bviewed,comment,date) values('','11','test1','$a_title','$a_desc','$a_story','$a_tags','0','0','','$date')";
 
  if(mysqli_query($conn,$sql)){
      echo 1;
