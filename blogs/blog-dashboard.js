@@ -104,9 +104,6 @@ function set_status(card_number, status){
     if(status===1){viewed_card[card_number-1].style.setProperty('--status','var(--valid-bg)');}
     if(status===0){viewed_card[card_number-1].style.setProperty('--status','var(--warn-bg)');}
 }
-
-
-
 let story_ttl = document.querySelector('.blog_complete .ttl_page');
 
 

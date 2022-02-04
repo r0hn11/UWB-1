@@ -254,6 +254,7 @@
         
         if($res4){
             $_SESSION['success']="Row Updated successfully!";
+            echo "set_status(".$ubid.",".$status2.");";
             echo "<script>window.location.href = 'blog-dashboard.php' </script>";
             
         }else{
