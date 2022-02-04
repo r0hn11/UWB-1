@@ -1,3 +1,4 @@
+
 //----------------PRELOADER
 let loader = document.querySelector('.preloader');
 let bdy = document.getElementsByTagName('body')[0];
@@ -254,6 +255,7 @@ window.addEventListener('load',function(){
     else extra_pad = 10;
     acc_par.style.paddingTop = `${navbar.offsetHeight+extra_pad}px`;
     team_menu.style.top = `${navbar.offsetHeight+extra_pad}px`;
+    //getfilename();
 });
 window.addEventListener('scroll', function(){
     if(window.innerWidth>600) extra_pad = 15;
@@ -291,3 +293,4 @@ btt.addEventListener('click', function(){
 logo.addEventListener('click', function(){
     window.location.href = '../landing_page/index.html';
 })
+

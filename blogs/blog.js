@@ -13,7 +13,6 @@ let cards = document.querySelectorAll('.blog_card');
 let new_div = document.querySelector('.new');
 let login_flag = document.querySelector('.flag');
 
-
 np_wrap.style.opacity = '0';
 function show_np_img(){
     setTimeout(() => {
@@ -141,22 +140,24 @@ function maintain_count(){
 }
 
 function maintain_count_rev(){
-    if(window.innerWidth >=1200 && blog_container.childElementCount<=12){
-        while(blog_container.childElementCount!=12){
-            blog_container.appendChild(removed_arr[removed_arr.length-1]);
-            removed_arr.pop();
+    if(removed_arr.length > 2){
+        if(window.innerWidth >=1200 && blog_container.childElementCount<=18){
+            while(blog_container.childElementCount!=18){
+                blog_container.appendChild(removed_arr[removed_arr.length-1]);
+                removed_arr.pop();
+            }
         }
-    }
-    else if((window.innerWidth >= 700 && window.innerWidth < 1200) && blog_container.childElementCount<=10){
-        while(blog_container.childElementCount!=10){
-            blog_container.appendChild(removed_arr[removed_arr.length-1]);
-            removed_arr.pop();
+        else if((window.innerWidth >= 700 && window.innerWidth < 1200) && blog_container.childElementCount<=14){
+            while(blog_container.childElementCount!=14){
+                blog_container.appendChild(removed_arr[removed_arr.length-1]);
+                removed_arr.pop();
+            }
         }
-    }
-    else if((window.innerWidth>0 && window.innerWidth<700) && blog_container.childElementCount<=8){
-        while(blog_container.childElementCount!=8){
-            blog_container.appendChild(removed_arr[removed_arr.length-1])
-            removed_arr.pop();
+        else if((window.innerWidth>0 && window.innerWidth<700) && blog_container.childElementCount<=10){
+            while(blog_container.childElementCount!=10){
+                blog_container.appendChild(removed_arr[removed_arr.length-1])
+                removed_arr.pop();
+            }
         }
     }
 }
@@ -171,6 +172,7 @@ window.addEventListener('load', function(){
     show_cards();
     maintain_count();
     maintain_count_rev();
+    //rename();
 });
 window.addEventListener('resize', function(){
     np_min_hght();
@@ -183,3 +185,42 @@ shr_btn[0].addEventListener('click', open_ap);
 home.addEventListener('focus', hide_acc);
 
 
+
+let url = window.location.href;
+
+let arr = [];
+for(let b=0;b<url.length;b++){
+    arr.push(url[b]);
+}
+let url_rev = arr.reverse();
+let filename = [];
+let file_name_final = [];
+let str_path = '';
+function getfilename(){
+    for(let i=0;i<url.length;i++){
+        if(url_rev[i] !== '/'){
+            filename.push(url_rev[i]);
+        }
+        else{
+            break;
+        }
+    }
+    file_name_final = filename.reverse();
+    
+    for(let n =0;n<file_name_final.length;n++){
+        str_path += file_name_final[n];
+    }
+}
+// let login_name;
+// let final_usrname;
+// function rename(){
+//     if(str_path === "blog-home.php"){
+//         login_name = document.getElementById('loginstat');
+//     }
+//     final_usrname = login_name.innerText;
+//     rename_all();
+// }
+
+// function rename_all(){
+//     name_on_card.innerText = final_usrname;
+// }

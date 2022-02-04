@@ -1,3 +1,25 @@
+<?php
+    session_start();
+    if(isset($_SESSION['loginstat']))
+    {
+        if($_SESSION['loginstat'] == 1)
+        { 
+            $flag = 1;  
+            $usignnm = $_SESSION['usignnm'];
+            $usignem = $_SESSION['usignem'];
+        }
+        else{
+            $flag = 0;
+            $usignnm = "Signed Out";
+        }
+    }
+    else{
+        $flag = 0;
+        $usignnm = "Signed Out";
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -75,7 +97,7 @@
             <div class="acc_wrapper flex-col" id="acc_wrapperid">
                 <div class="top flex-col" id="topid">
                     <img src="../common_images/profile.svg" alt="profile-picture" class="avatar">
-                    <div class="name" id="nameid">Signed out</div>
+                    <div class="name" id="nameid"><?php echo $usignnm; ?></div>
                 </div>
                 <div class="low flex-col" id="acc_links">
                     <div id="mng"><button class="disabled2">Manage profile</button></div>
@@ -111,7 +133,7 @@
                 <div class="side_db flex-col">
                     <div class="name">
                         <span class="field">Name :</span>
-                        <span id='user_name' class="edit_value">-</span>
+                        <span id='user_name' class="edit_value"><?php echo $usignnm; ?></span>
                         <input type="text" class="edit_fields" id="un">
                     </div>
                     <div class="location">
@@ -144,12 +166,12 @@
                                     <th width='300'>Reason</th>
                                 </tr>
                             </thead>
-                            <!-- <tr>
+                            <tr>
                                 <td>lorem lorem</td>
                                 <td>123asd123</td>
                                 <td>lorem3</td>
                                 <td>Lorem ipsum dolor sit amet.</td>
-                            </tr> -->
+                            </tr>
                         </table>
                     </div>
                 </div>
@@ -271,7 +293,7 @@
         <a href="#blank" class="btt"><i class="fas fa-chevron-circle-up"></i></a>
     </footer>
 
-    <div class="flag">1</div>
+    <div class="flag"><?php echo $flag  ?></div>
 
 </body>
 
@@ -292,21 +314,31 @@
             var a_story = $("#a_story").val();
             var a_tags = $("#a_tags").val();
 
-            $.ajax({
-                url: "blog-addpost.php",
-                type: "POST",
-                data: {a_title:a_title,a_desc:a_desc,a_story:a_story,a_tags:a_tags},
-                success:function(data){
-                    if(data == 1){
-                    $("#b_form").trigger("reset");
-                }
-                    else{
-                        alert("Could not enter data");
+            if(a_title == ""){
+                alert("Article title is must");
+            }
+            else if(a_desc == "") {
+                alert("Article description is must");
+            }
+            else if(a_story == "") {
+                alert("Story is must");
+            }
+            else{
+                $.ajax({
+                    url: "blog-addpost.php",
+                    type: "POST",
+                    data: {a_title:a_title,a_desc:a_desc,a_story:a_story,a_tags:a_tags},
+                    success:function(data){
+                        if(data == 1){
+                            $("#b_form").trigger("reset");
+                        }
+                        else{
+                            alert("Cannot Insert Data");
+                        }
                     }
-                }
-            });
-        })
+                });
+            }
+        });
     });
-
 </script>
 </html>
