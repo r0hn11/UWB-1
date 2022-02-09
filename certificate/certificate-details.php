@@ -1,6 +1,6 @@
 <?php
     if(isset($_POST['validate'])){
-        include 'conn.php';
+        include '../conn.php';
     }
     else{
         echo "Error in validate button button";
