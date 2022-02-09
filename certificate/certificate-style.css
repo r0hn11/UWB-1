@@ -181,7 +181,7 @@ form{
     justify-content: center;
 }
 #cert_icon{
-    background: url(../images/crt.png) no-repeat center center/cover;
+    background: url(images/crt.png) no-repeat center center/cover;
     filter: brightness(10) saturate(10) hue-rotate(-20deg);
     width: 70px;
     height: 85px;
