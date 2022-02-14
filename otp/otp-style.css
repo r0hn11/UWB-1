@@ -1,0 +1,222 @@
+body{
+    --theme : #e5e5e5;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: var(--theme);
+}
+@media (prefers-color-scheme:dark) {
+    body{--theme:#333;}
+}
+
+.otp_boxes input::-webkit-outer-spin-button,
+.otp_boxes input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+main{
+    text-align: center;
+    color: var(--text-fade);
+}
+main .wrapper{
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+/* ----------------IMAGE--------- */
+main .wrapper .icon{
+    position: relative;
+    transform-origin: bottom left;
+}
+@media (prefers-color-scheme:light){
+    main .wrapper .icon img{
+        filter: contrast(1.06) brightness(0.975);
+    }
+}
+
+main .wrapper .icon img{
+    height: 70px;
+    transform: scale(0);
+    transition: 0.4s;
+}
+main .wrapper .icon .indicator{
+    height: 18px;
+    width: 18px;
+    background: var(--links);
+    border-radius: 50%;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    box-shadow: var(--prof-card-shdow);
+    transform: scale(0);
+    opacity: 0;
+}
+
+@keyframes pop {
+    0%{
+        transform: scale(0);
+    }
+    40%{
+        transform: scale(0);
+    }
+    50%{
+        transform: scale(1.3);
+    }
+    60%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+@keyframes lift {
+    0%{
+        transform: rotate(0deg);
+    }
+    50%{
+        transform: rotate(-5deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+
+/* ----------------MESSAGE 1--------- */
+main .wrapper .txt1{gap: 10px;}
+main .wrapper .txt1 h4{
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text);
+    letter-spacing: 1px;
+}
+main .wrapper .txt1 .msg{
+    letter-spacing: 1px;
+    font-size: 13px;
+    font-weight: 400;
+}
+main .wrapper .txt1 .msg span{
+    color: var(--text);
+    font-weight: 400;
+}
+
+/* ----------------INPUT BOXES--------- */
+main .wrapper .otp_boxes{gap: 20px;}
+main .wrapper .otp_boxes input{
+    width: 45px;
+    height: 50px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 500;
+    color: var(--text);
+    border-radius: 3px;
+    background: var(--input-bg);
+    border: none;
+    outline: none;
+    opacity: 0.7;
+}
+main .wrapper .otp_boxes input:focus{
+    opacity: 1;
+}
+
+/* ----------------RESEND MESSAGE--------- */
+main .wrapper .re{
+    letter-spacing: 1px;
+    font-size: 13px;
+    font-weight: 400;
+}
+main .wrapper .re a{
+    padding: 2px 5px;
+    color: var(--links);
+    font-size: 13px;
+    position: relative;
+}
+main .wrapper .re a::after{
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-bottom: 2px solid var(--links);
+    transform: scaleX(0);
+    transition: 0.25s ease-in-out;
+}
+main .wrapper .re a:hover, main .wrapper .re a:focus{
+    background: transparent;
+}
+main .wrapper .re a:hover::after, main .wrapper .re a:focus::after{
+    transform: scaleX(1);
+}
+
+/* ----------------SUBMIT BUTTON--------- */
+main .wrapper button{
+    background: var(--accent);
+    border: none;
+    outline: none;
+    font-family: var(--formal);
+    color: #fff;
+    border-radius: 500px;
+    letter-spacing: 2px;
+    padding: 9px 25px 10PX 25PX;
+    font-size: 15px;
+    font-weight: 500;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+main .wrapper button::after{
+    content: '';
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    position: absolute;
+    background: #fff;
+    opacity: 0;
+}
+main .wrapper button:hover, main .wrapper button:focus{
+    text-shadow: 0 0 3px #fff;
+}
+main .wrapper button:hover::after, main .wrapper button:focus::after{
+    animation: fade 1s ease-in-out 1 forwards ;
+}
+@keyframes fade {
+    0%{
+        transform: scale(0);
+        opacity: 0;
+    }
+    15%{
+        transform: scale(0);
+        opacity: 0.5;
+    }
+    100%{
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+
+
+
+@media screen and (max-width:500px) {
+    main .wrapper{gap: 25px;}
+    main .wrapper .icon img{height: 60px;}
+    main .wrapper .icon .indicator{
+        height: 15px;
+        width: 15px;
+    }
+    main .wrapper .txt1 h4{font-size: 16px;}
+    main .wrapper .otp_boxes{gap: 15px;}
+    main .wrapper .otp_boxes input{
+        height: 40px;
+        width: 35px;
+        font-size: 18px;
+    }
+    main .wrapper .txt1 .msg, main .wrapper .re, main .wrapper .re a{font-size: 11px;}
+    main .wrapper button{font-size: 13px;}
+}
