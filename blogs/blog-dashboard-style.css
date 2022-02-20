@@ -208,6 +208,7 @@ a:focus{
 .blog_complete{
     --padding : 25px;
     align-items: flex-start;
+    justify-content: flex-start;
     background: var(--story-bg);
     color: var(--text);
     border-radius: 8px;
@@ -217,6 +218,7 @@ a:focus{
     overflow: hidden;
     padding-bottom: 20px;
     position: relative;
+    max-height: 75vh;
 }
 .blog_complete .top{
     gap: 8px;

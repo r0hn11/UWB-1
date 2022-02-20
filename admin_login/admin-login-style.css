@@ -54,7 +54,7 @@ body{
     transition: 0.3s ease-in-out;
 }
 .front>.icon{
-    background: url(../images/logo.jpeg) no-repeat center center/cover;
+    background: url(../common_images/logo.jpeg) no-repeat center center/cover;
     background-size: 110%;
     height: 120px;
     width: 120px;
@@ -64,7 +64,7 @@ body{
     transition: 0.2s ease-in-out;
 }
 .rear>.icon{
-    background: url(../images/logo.jpeg) no-repeat center center/cover;
+    background: url(../common_images/logo.jpeg) no-repeat center center/cover;
     background-size: 110%;
     height: 75px;
     width: 75px;
