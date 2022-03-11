@@ -118,7 +118,7 @@
 
         <!-- add post -->
         <div class="add_post_par flex-col inactive2">
-            <form class="add_post flex-col">
+            <form class="add_post flex-col" action="add_post.php" method="post">
                 <div class="attl atc_fields flex-col">
                     <label for="a_title">Article title</label>
                     <input type="text" name="atcl_title" id="a_title" required>
@@ -140,10 +140,10 @@
                     <input type="text" name="atcl_tags" id="a_tags" placeholder="Ex. tag1, tag2, tag3 etc">
                 </div>
                 <div class="buttons flex-row">
-                    <button type="submit" class="publish_b">Publish</button>
+                    <button type="submit" class="publish_b" name="publish">Publish</button>
                     <button type="reset" class="cancel_b">Cancel</button>
                 </div>
-             <!-- </form> -->
+             </form>
         </div>
 
         <div class="select_post_par flex-row inactive2">
