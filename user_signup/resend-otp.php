@@ -1,57 +1,31 @@
 <?php
-    $expression = $_POST['signupbtn'];
-    if(isset($expression))
-    {
-        session_start();
-        include '../conn.php';
-        // echo "hello";
-        $uname = $_POST['uname'];
-        $uemail = $_POST['uemail'];
-        $upw = $_POST['upw'];
-        $ucpw = $_POST['ucpw'];
-
-        if($upw == $ucpw){
-            $to = "$uemail";
-            $subject = "OTP Verification Mail";
-            $otp = rand(11111,99999);
-            // setcookie('otpcookie', $otp, time() + (60*5), '/');
-            // echo $_COOKIE['otpcookie'];
-            $message = "Hello $uname, your email verification otp is . $otp";
-            $from = "assassineshan3004@gmail.com";
-            $headers = "From: $from";
-
-            if(mail($to,$subject,$message,$headers)){
-                // $conn = mysqli_connect("localhost","root","","uwb");
-                if($conn === false){
-                    die("ERROR: Could not connect. " . mysqli_connect_error());
-                }
-                $query = "INSERT INTO `user` (`Email-Id`, `OTP`) VALUES ('$uemail', '$otp')";
-                $sql = mysqli_query($conn,$query);
-                $_SESSION['uname'] = $_POST['uname'];
-                $_SESSION['uemail'] = $_POST['uemail'];
-                $_SESSION['upw'] = $_POST['upw'];
-            }
-            else{
-                echo "Mail not Sent...";
-            }
+    session_start();
+    include '../conn.php';
+    $uemail = $_GET['uemail'];
+    $to = "$uemail";
+    $subject = "OTP Verification Mail";
+    $otp = rand(11111,99999);
+    $message = "Hello your email verification otp is . $otp";
+    $from = "assassineshan3004@gmail.com";
+    $headers = "From: $from";
+    if(mail($to,$subject,$message,$headers)){
+        // $conn = mysqli_connect("localhost","root","","uwb");
+        if($conn === false){
+            die("ERROR: Could not connect. " . mysqli_connect_error());
         }
-        else{
-            echo "
+        $query = "UPDATE `user` SET `OTP`='$otp' where `Email-Id`='$uemail'";
+        $sql = mysqli_query($conn,$query);
+        $_SESSION['uemail'] = $uemail;
+        echo "
             <script>
-                alert('Please enter correct password');
-                window.location.href = 'user-signup.html';
+                alert('Check your mail for new OTP');
             </script>
             ";
-        }
     }
     else{
-        echo "
-        <script>
-            alert('No response submitted');
-            window.location.href = 'user-signup.html';
-        </script>
-        ";
+        echo "Mail not Sent...";
     }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
