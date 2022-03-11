@@ -10,7 +10,12 @@
         $uname = $_SESSION['uname'];
         $uemail = $_SESSION['uemail'];
         $upw = $_SESSION['upw'];
-        $uotp = $_POST['uotp'];
+        $uotp1 = strval($_POST['uotp1']);
+        $uotp2 = strval($_POST['uotp2']);
+        $uotp3 = strval($_POST['uotp3']);
+        $uotp4 = strval($_POST['uotp4']);
+        $uotp5 = strval($_POST['uotp5']);
+        $uotp = "$uotp1"."$uotp2"."$uotp3"."$uotp4"."$uotp5";
         if(true){
             // print_r($_COOKIE);
             // echo $_COOKIE['otpcookie'];
@@ -55,5 +60,13 @@
                 window.location.href = 'user-signup.html';
             </script> ";
         }
+}
+else{
+    echo "
+    <script>
+        alert('No response submitted');
+        window.location.href = 'user-signup.html';
+    </script>
+    ";
 }
 ?>
