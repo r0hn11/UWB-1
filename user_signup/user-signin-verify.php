@@ -17,7 +17,7 @@
             $usignem = $_SESSION['usignem'];
             echo "
             <script>
-                window.location.href = '../blogs/blog-home.php';
+                window.location.href = '../blogs/userdb.php';
             </script>
             ";
         }

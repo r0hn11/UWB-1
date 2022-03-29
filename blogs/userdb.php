@@ -1,23 +1,23 @@
 <?php
-    $host="localhost";
-    $username="root";
-    $pass="";
-    $db="uwb";
-    $conn=mysqli_connect($host,$username,$pass,$db);
-    if(!$conn){
-        die("Connection failed: " . mysqli_connect_error());
-    }
-    $sql = "select * from blog";
-    $sql2 = "select * from blog where bviewed = 1";
-
-    $result = $conn->query($sql) or die($conn->error);
-    $result2 = $conn->query($sql2) or die($conn->error);
-    $mysql = mysqli_query($conn,$sql);
-    $myrow = mysqli_fetch_array($mysql);
-
     session_start();
-   
-     ?>
+    include '../conn.php';
+    if(!isset($_SESSION['usignem'])){
+        header('location: ../user_signup/user-signup.html');
+    }
+    else{
+        $usignem = $_SESSION['usignem'];
+        $sql = "select * from blog";
+        $sql2 = "select * from blog where bviewed = 1";
+
+        $result = $conn->query($sql) or die($conn->error);
+        $result2 = $conn->query($sql2) or die($conn->error);
+        $mysql = mysqli_query($conn,$sql);
+        $myrow = mysqli_fetch_array($mysql);
+
+        $dataquery = mysqli_query($conn,"SELECT * from `usermain` where `Email-Id`='$usignem'");
+        $datarow = mysqli_fetch_array($dataquery); 
+    }  
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,7 +52,7 @@
             <ul class="links flex-col">
                 <li class="blogsli"><i class="fa-solid fa-newspaper"></i><span>Blogs</span></li>
                 <li class="mngli"><i class="fa-solid fa-user"></i><span>Manage profile</span></li>
-                <li class="lgoli"><i class="fa-solid fa-arrow-right-from-bracket"></i><span>Logout</span></li>
+                <li class="lgoli"><i class="fa-solid fa-arrow-right-from-bracket"></i><a href="user-logout.php"><span>Logout</span></a></li>
                 <li class="close_menu"><i class="fa-solid fa-chevron-left"></i></li>
             </ul>
         </section>
@@ -166,7 +166,7 @@
                 <div class="ttl blogsttl flex-row"><i class="fa-solid fa-user"></i><span>manage profile</div>
                 
                 <div class="usrmain_parent flex-row">
-                    <form class="usrprofile flex-col">
+                    <form class="usrprofile flex-col" action="update-profile.php" method="POST">
                         <div class="profile_main flex-row">
                             <div class="img_par">
                                 <img src="../common_images/profile.svg" alt="avatar" class="avatar">
@@ -185,12 +185,12 @@
                             <div class="basics flex-col">
                                 <div class="uname_par flex-col">
                                     <div class="namettl">Name</div>
-                                    <span class="uname">-</span>
-                                    <input type="text">
+                                    <span class="uname"><?php echo $_SESSION['usignnm']; ?></span>
+                                    <input type="text" name="usignnm">
                                 </div>
                                 <div class="uname_par flex-col">
                                     <div class="mailttl">Email</div>
-                                    <span class="umail">-</span>
+                                    <span class="umail"><?php echo $_SESSION['usignem']; ?></span>
                                 </div>
                             </div>
                         </div>
@@ -198,13 +198,13 @@
                         <div class="profile_extra flex-col">
                             <div class="uloc_par flex-col">
                                 <div class="locttl">Location</div>
-                                <span class="uloc">-</span>
-                                <input type="text">
+                                <span class="uloc"><?php echo $datarow['Location'] ?></span>
+                                <input type="text" name="usignloc">
                             </div>
                             <div class="ubio_par flex-col">
                                 <div class="biottl">User Bio</div>
-                                <span class="ubio">-</span>
-                                <textarea cols="10" rows="5" maxlength="250ch"></textarea>
+                                <span class="ubio"><?php echo $datarow['User-Bio'] ?></span>
+                                <textarea cols="10" rows="5" maxlength="250ch" name="usignbio"></textarea>
                             </div>
                         </div>
                         
