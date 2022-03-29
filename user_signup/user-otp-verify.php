@@ -26,7 +26,7 @@
             $row = mysqli_fetch_array($value);
             if($row){
                 $usql = mysqli_query($conn,"DELETE FROM `user` WHERE `user`.`Email-Id` = '$uemail'");
-                $sql = "INSERT INTO `usermain` (`Username`, `Email-Id`, `Password`) VALUES ('$uname', '$uemail', '$upw')";
+                $sql = "INSERT INTO `usermain` (`Username`, `Email-Id`, `Password`,`Location`,`User-Bio`) VALUES ('$uname', '$uemail', '$upw', '', '')";
                 $run = mysqli_query($conn,$sql);
                 // print_r($_COOKIE);
                 session_unset();
