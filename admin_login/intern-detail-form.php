@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Intern Data Upload Form</title>
 <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-<link rel="stylesheet" href="intern-detail-form.css">
+<link rel="stylesheet" href="intern-details-style.css">
 
 <body>
   <!-- logo -->

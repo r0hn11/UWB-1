@@ -1,3 +1,23 @@
+<?php
+    $host="localhost";
+    $username="root";
+    $pass="";
+    $db="uwb";
+    $conn=mysqli_connect($host,$username,$pass,$db);
+    if(!$conn){
+        die("Connection failed: " . mysqli_connect_error());
+    }
+    $sql = "select * from blog";
+    $sql2 = "select * from blog where bviewed = 1";
+
+    $result = $conn->query($sql) or die($conn->error);
+    $result2 = $conn->query($sql2) or die($conn->error);
+    $mysql = mysqli_query($conn,$sql);
+    $myrow = mysqli_fetch_array($mysql);
+
+    session_start();
+   
+     ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,20 +82,37 @@
 
                 
                 <!-- CARDS BOX -->
+                
                 <div class="card_container flex-row">
 
                     <div class="blog_msg flex-row">No <span></span> blogs.</div>
+                    <?php 
+                            while($row=mysqli_fetch_assoc($result))
+                            {
+                                ?>
 
                     <article class="blog_card flex-col">
-                        <p class="bname">blog title 1</p>
-                        <p class="bdate">20 january 2021</p>
-                        <p class="bdesc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo at quod expedita, explicabo quas facilis laudantium voluptatem molestias dicta quidem ab corporis blanditiis amet similique eligendi iste odio aliquid, molestiae incidunt. Sapiente nulla fuga nemo illo iure alias cupiditate provident quisquam omnis sequi. Vero sed dolorum, corporis facilis omnis neque qui sint placeat maxime, tempore cum illo enim quasi? Dolore quaerat unde maiores, expedita earum pariatur amet? Id, impedit consequuntur?</p>
-                        <p class="bstory">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero quibusdam et modi recusandae corrupti nemo, veniam vel quo! Praesentium quo pariatur deleniti reprehenderit eius vitae ab esse amet architecto doloribus voluptatum iure voluptatem, ut perferendis odio cupiditate dolore magnam distinctio molestiae error vel incidunt molestias? Voluptate, facilis laboriosam. Et nobis illo veniam vel? Repudiandae, asperiores inventore accusamus eius dolor illum voluptas nihil sint atque nobis iure officia eveniet cumque vel pariatur deleniti quas vero, assumenda delectus cum eligendi molestias. Ullam temporibus ipsum enim explicabo nulla quis facere voluptatibus modi quisquam repellendus accusamus cum optio a, cupiditate velit consequatur in dolorum?</p>
-                        <p class="status">Status : <span>pending</span></p>
-                    </article>
+                        <p class="bname"><?php echo $row['btitle'] ?></p>
+                        <p class="bdate"><?php echo $row['date']?></p>
+                        <p class="bdesc"><?php echo $row['bdescription']; ?></p>
+                        <p class="bstory"><?php echo $row['bstory'];?></p>
+                        <p class="status">Status : <span><?php 
+                        if($row['bstatus']==1 && $row['bviewed']==1){
+                            echo "Approved" ;
+                        }elseif($row['bstatus']==1 && $row['bviewed']==0){
+                            echo "Rejected" ;
 
+                        }else{
+                            echo "Pending";
+                        }
+                        ?></span></p>
+                    </article>
+                    <?php
+                            }
+                            ?>
 
                 </div>
+               
 
                 <!-- VIEW STORY -->
                 <div class="view_story_par flex-row inactive2">
@@ -116,11 +153,13 @@
                             <button type="reset" class="cancel_b">Cancel</button>
                         </div>
                     </form>
+                    
                 </div>
+                
 
             </section>
 
-
+            
             <!-- PROFILE SECTION -->
             <section class="profile_section flex-col inactive2">
                 <!-- SECTION TITLE -->
