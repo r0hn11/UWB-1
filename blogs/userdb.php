@@ -6,16 +6,20 @@
     }
     else{
         $usignem = $_SESSION['usignem'];
+        $usignnm = $_SESSION['usignnm'];
         $sql = "select * from blog";
         $sql2 = "select * from blog where bviewed = 1";
 
         $result = $conn->query($sql) or die($conn->error);
         $result2 = $conn->query($sql2) or die($conn->error);
         $mysql = mysqli_query($conn,$sql);
-        $myrow = mysqli_fetch_array($mysql);
+        $row = mysqli_fetch_array($mysql);
 
         $dataquery = mysqli_query($conn,"SELECT * from `usermain` where `Email-Id`='$usignem'");
         $datarow = mysqli_fetch_array($dataquery); 
+
+        $sql3 = "select * from blog where uname ='$usignnm'";
+        $result3 = $conn->query($sql3) or die($conn->error);
     }  
 ?>
 <!DOCTYPE html>
@@ -75,31 +79,31 @@
                 <!-- NO POST MESSAGE -->
                 <div class="no_post flex-col noselect">
                     <img src="images/no_post_img.png" alt="no post" class="np_img">
-                    <div class="np_msg flex-row">No posts yet. create by clicking<span><i class="fa-solid fa-plus"></i></span></div>
+                    <div class="np_msg flex-row">No posts yet. create by clicking <span><i class="fa-solid fa-plus"></i></span></div>
                 </div>
 
                 <!-- ADD POST -->
 
                 
                 <!-- CARDS BOX -->
-                
+           
                 <div class="card_container flex-row">
 
                     <div class="blog_msg flex-row">No <span></span> blogs.</div>
-                    <?php 
-                            while($row=mysqli_fetch_assoc($result))
+                    <!-- <?php 
+                            while($myrow=mysqli_fetch_assoc($result3))
                             {
-                                ?>
+                                ?> -->
 
                     <article class="blog_card flex-col">
-                        <p class="bname"><?php echo $row['btitle'] ?></p>
-                        <p class="bdate"><?php echo $row['date']?></p>
-                        <p class="bdesc"><?php echo $row['bdescription']; ?></p>
-                        <p class="bstory"><?php echo $row['bstory'];?></p>
+                        <p class="bname"><?php echo $myrow['btitle'] ?></p>
+                        <p class="bdate"><?php echo $myrow['date']?></p>
+                        <p class="bdesc"><?php echo $myrow['bdescription']; ?></p>
+                        <p class="bstory"><?php echo $myrow['bstory'];?></p>
                         <p class="status">Status : <span><?php 
-                        if($row['bstatus']==1 && $row['bviewed']==1){
+                        if($myrow['bstatus']==1 && $myrow['bviewed']==1){
                             echo "Approved" ;
-                        }elseif($row['bstatus']==1 && $row['bviewed']==0){
+                        }elseif($myrow['bstatus']==1 && $myrow['bviewed']==0){
                             echo "Rejected" ;
 
                         }else{
