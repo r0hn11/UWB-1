@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- styles -->
+  <link rel="stylesheet" href="./src/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="shortcut icon" type="image/x-icon" href="../img/favicon.png">
+  <link rel="shortcut icon" type="image/x-icon" href="./img/favicon.png">
+    <!-- scripts -->
+  <script src="./src/app.js" defer></script>
+  <title>Get Help</title>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="logo-container">
+        <img src="./img/logo.png" alt="logo">
+      </div>
+      <h1 class="form-title">
+        Need Help? We got you!
+      </h1>
+    </header>
+    <p class="description">
+      * We assure you that any information you enter will be treated confidentially. Everyone who works in this organisation adheres to our privacy policy. So don't worry, your information is secure with us.*
+    </p>
+    <form class="form">
+      <div id="text-inputs">
+        <!-- this parts elements are going to be generated in app.js -->
+        <!-- sample -->
+        <!-- <div class="info-input">
+          <input type="text" name="infoInputO.name" autocomplete="off" value="" required>
+          <label for="infoInputO.name" class="label-name">
+              <span class="content-name">
+                infoInputO.labelText <em>*</em>
+              </span>
+          </label>
+        </div> -->
+      </div>
+      <div id="radio-inputs">
+        <!-- this parts elements are going to be generated in app.js -->
+        <!-- sample -->
+        <!-- <div>
+          <p class="content-name">Gender <em>*</em></p>
+          <div class="gender-options">
+            <div>
+              <input type="radio" id="female" name="gender" value="female">
+              <label for="female">
+                <span class="content-name">
+                  Female
+                </span>
+              </label>
+            </div>
+            <div>
+              <input type="radio" id="male" name="gender" value="male">
+              <label for="male">
+                <span class="content-option">
+                  Male
+                </span>
+              </label>
+            </div>
+            <div>
+              <input type="radio" id="other" name="gender" value="other">
+              <label for="other">
+                <span class="content-name">Other</span>
+              </label>  
+            </div>
+          </div>
+        </div> -->
+      </div>
+      <div id="multi-options">
+        <!-- this parts elements are going to be generated in app.js -->
+        <!-- sample -->
+        <!-- <div class="drop-down">
+          <div class="question">
+            <div id="reasons">
+              <p class="content-name">
+                What brought you here? <em>*</em>
+              </p>
+              <span class="selected">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ducimus, omnis!</p>
+                <i class="fa-solid fa-xmark"></i>
+              </span>
+            </div>
+            <div class="btn-container">
+              <i class="fa-solid fa-caret-down close"></i>
+            </div>
+          </div>
+          <div class="answers">
+            <ul class="close">
+              <li class="choice">
+                <i class="fa-solid fa-check"></i>
+                <span>Career Issues</span>
+              </li>
+            </ul>
+          </div>
+        </div> -->
+      </div>
+      <div id="describe">
+        <div class="textarea" name="describe" contenteditable="true"></div>
+        <label for="describe" class="label-name">
+              <span class="content-name">
+                Describe the situation <em>*</em>
+              </span>
+          </label>
+      </div>
+      <div id="btn">
+        <input type="submit" value="submit">
+      </div>
+    </form>
+  </main>
+</body>
+</html>
