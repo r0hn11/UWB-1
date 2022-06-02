@@ -90,10 +90,10 @@
                 <div class="card_container flex-row">
 
                     <div class="blog_msg flex-row">No <span></span> blogs.</div>
-                    <!-- <?php 
+                     <?php 
                             while($myrow=mysqli_fetch_assoc($result3))
                             {
-                                ?> -->
+                                ?> 
 
                     <article class="blog_card flex-col">
                         <p class="bname"><?php echo $myrow['btitle'] ?></p>
