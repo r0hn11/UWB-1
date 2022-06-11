@@ -32,6 +32,16 @@
     <link rel="stylesheet" href="../common_styles/user-dashboard.css">
     <link rel="stylesheet" href="../common_styles/footer.css">
     <link rel="stylesheet" href="blog-style.css">
+    <link rel="stylesheet" href="userdb-style.css">
+    <style>
+        .view_story_par{
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+    </style>
 </head>
 <body>
 
@@ -83,7 +93,7 @@
         <ul class="main_menu_min flex-col">
             <li><a class='menu_links' href="../landing_page/index.html">Home</a></li>
             <li><a class='menu_links' href="#about-section">About Us</a></li>
-            <li><a class='menu_links active_page_min' href="../blog-home.php">Blogs</a></li>
+            <li><a class='menu_links active_page_min' href="../blogs/blog-home.php">Blogs</a></li>
             <li><a class='menu_links' href="../teams/teams-management.html">Management Team</a></li>
             <li><a class='menu_links' href="../teams/team-directors.html">Board of Directors</a></li>
             <li><a class='menu_links' href="../contact_us/contact-us.html">Contact</a></li>
@@ -218,9 +228,19 @@
                     <!-- card sample -->
                     
                     <li class="blog_card flex-col">
-                        <div class="bname">1</div>
+                        <div class="bname">4</div>
+                        <div class="bdate">20-5-2022</div>
                         <div class="bauth">adrian murloc</div>
                         <div class="bdesc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias eveniet totam tempora non eius voluptatem reprehenderit autem eum eligendi rem, nihil doloremque perspiciatis. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde soluta nulla molestias impedit fuga eius, laudantium iure corporis quas quasi.</div>
+                        <div class="bstory">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias eveniet totam tempora non eius voluptatem reprehenderit autem eum eligendi rem, nihil doloremque perspiciatis. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde soluta nulla molestias impedit fuga eius, laudantium iure corporis quas quasi.</div>
+                        <button class="rd_more">Read more</button>
+                    </li>
+                    <li class="blog_card flex-col">
+                        <div class="bname">5</div>
+                        <div class="bdate">20-5-2022</div>
+                        <div class="bauth">adrian murloc</div>
+                        <div class="bdesc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias eveniet totam tempora non eius voluptatem reprehenderit autem eum eligendi rem, nihil doloremque perspiciatis. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde soluta nulla molestias impedit fuga eius, laudantium iure corporis quas quasi.</div>
+                        <div class="bstory">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias eveniet totam tempora non eius voluptatem reprehenderit autem eum eligendi rem, nihil doloremque perspiciatis. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde soluta nulla molestias impedit fuga eius, laudantium iure corporis quas quasi.</div>
                         <button class="rd_more">Read more</button>
                     </li>
                     
@@ -255,6 +275,19 @@
                             <button type="reset" class="cancel_b">Cancel</button>
                         </div>
                     </form>
+                </div>
+
+                <div class="view_story_par flex-row inactive2">
+                    <article class="view_story flex-col">
+                        <div class="backbtn flex-row"><i class="fa-solid fa-chevron-left"></i><span>back to blogs</span></div>
+                        <div class="vttl flex-row"></div>
+                        <div class="vdate"></div>
+                        <div class="vauthor"></div>
+                        <div class="vdescttl">Description</div>
+                        <div class="vdesc"></div>
+                        <div class="vstryttl">Story</div>
+                        <div class="vstry"></div>
+                    </article>
                 </div>
 
             </div>
