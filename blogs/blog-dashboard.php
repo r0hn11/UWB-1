@@ -1,21 +1,27 @@
 <?php
-    $host="localhost";
-    $username="root";
-    $pass="";
-    $db="uwb";
-    $conn=mysqli_connect($host,$username,$pass,$db);
-    if(!$conn){
-        die("Connection failed: " . mysqli_connect_error());
+session_start();
+    include '../conn.php';
+    if($conn)
+    {
+        $aname = $_SESSION['aname'];
+        $apw = $_SESSION['apw'];
+        $departments = $_SESSION['departments'];
+        $result=mysqli_query($conn,"select * from admin where aname='$aname' and apw='$apw' and departments='$departments'") or die("Cant connect to server!");
+        if(mysqli_num_rows($result)>0){
+            $_SESSION["admin-login"] = 1;
+            $sql = "select * from blog where bviewed = 0 order by date ASC";
+            $sql2 = "select * from blog where bviewed = 1 order by date ASC";
+            $result = $conn->query($sql) or die($conn->error);
+            $result2 = $conn->query($sql2) or die($conn->error);
+        }
+        else{
+            echo"<script language='javascript'>
+                 alert('Please enter correct credentials!!');
+                 window.location.href='../admin_login/admin-login.html';
+            </script>";
+        }
     }
-    $sql = "select * from blog where bviewed = 0 order by date ASC";
-    $sql2 = "select * from blog where bviewed = 1 order by date ASC";
-
-    $result = $conn->query($sql) or die($conn->error);
-    $result2 = $conn->query($sql2) or die($conn->error);
-
-    session_start();
-   
-     ?>
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

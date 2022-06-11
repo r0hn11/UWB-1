@@ -16,7 +16,7 @@
             <div class="ttl">Admin login</div>
             <div class="btn">login</div>
         </div>
-        <form action="admin-login-validate.php" class="rear flex-col vanish2" autocomplete="off" method="post">
+        <form action="admin-redirect.php" class="rear flex-col vanish2" autocomplete="off" method="post">
             <div class="icon"></div>
             <div class="ttl">Admin login</div>
             <div class="user-input flex-col">
@@ -31,7 +31,8 @@
                     <label>password</label>
                 </div>
                 <div class="dept">
-                    <select name="departments" id="">
+                    <select name="departments" id="departments" required>
+                        <option value="" disabled selected>Select Department</option>
                         <option value="data_entry">Data Entry</option>
                         <option value="blog">Blog</option>
                     </select>

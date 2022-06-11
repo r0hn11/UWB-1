@@ -11,7 +11,39 @@
   <link rel="shortcut icon" type="image/x-icon" href="./img/favicon.png">
     <!-- scripts -->
   <script src="./src/app.js" defer></script>
+  <script src="jquery.js"></script>
   <title>Complain</title>
+  <style>
+    #loader{
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    #loader>div:first-child{
+      height: 0.7em;
+      width: 0.7em;
+      border: 2px solid #000;
+      border-bottom: none;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      display: inline;
+      transform-origin: center;
+      font-size: 2em;
+      opacity: 0.2;
+      font-weight: 500;
+      animation: rotate 1s infinite linear;
+    }
+    @keyframes rotate {
+      0%{
+        transform: rotate(0deg);
+      }
+      100%{
+        transform: rotate(360deg);
+      }
+    }
+  </style>
 </head>
 <body>
   <main>
@@ -26,7 +58,7 @@
     <p class="description">
       * We assure you that any information you enter will be treated confidentially. Everyone who works in this organisation adheres to our privacy policy. So don't worry, your information is secure with us.*
     </p>
-    <form class="form">
+    <form class="form" method="post">
       <div id="text-inputs">
         <!-- this parts elements are going to be generated in app.js -->
         <!-- sample -->
@@ -105,8 +137,12 @@
         <div class="textarea" name="describe" contenteditable="true">
         </div>
       </div>
-      <div id="btn">
-        <input type="submit" value="submit">
+      <div id="btn" style="flex-direction: column; align-items: flex-start;">
+        <input type="submit" value="submit" id="submitbtn">
+        <div id="loader" style="padding: 20px; width: 100%;">
+          <div></div>
+          <div>Please wait a while, we are submitting form.</div>
+        </div>
       </div>
     </form>
   </main>
