@@ -120,7 +120,7 @@ filters[0].onclick = function filter_search(){
 filters[1].onclick = function filter_search(){
     appr_arr = [];
     blogs.forEach(element => {
-        if(element.childNodes[9].childNodes[1].innerHTML === "approved"){
+        if(element.childNodes[9].childNodes[1].innerHTML.toLowerCase() === "approved"){
             element.style.display = "flex";
             appr_arr.push(element);
         }
@@ -138,7 +138,7 @@ filters[1].onclick = function filter_search(){
 filters[2].onclick = function filter_search(){
     pend_arr = [];
     blogs.forEach(element => {
-        if(element.childNodes[9].childNodes[1].innerHTML === "pending"){
+        if(element.childNodes[9].childNodes[1].innerHTML.toLowerCase() === "pending"){
             element.style.display = "flex";
             pend_arr.push(element);
         }
@@ -156,7 +156,7 @@ filters[2].onclick = function filter_search(){
 filters[3].onclick = function filter_search(){
     rej_arr = [];
     blogs.forEach(element => {
-        if(element.childNodes[9].childNodes[1].innerHTML === "rejected"){
+        if(element.childNodes[9].childNodes[1].innerHTML.toLowerCase() === "rejected"){
             element.style.display = "flex";
             rej_arr.push(element);
         }

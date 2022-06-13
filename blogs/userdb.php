@@ -89,6 +89,7 @@
                 
                 
 
+<<<<<<< HEAD
                 <div class="card_container flex-row">
                
                 <?php 
@@ -97,6 +98,13 @@
                                 ?> 
 <div class="blog_msg flex-row">No <span></span> blogs.</div>
 
+=======
+                    <div class="blog_msg flex-row">No <span></span> blogs.</div>
+                     <?php 
+                            while($myrow=mysqli_fetch_assoc($result3))
+                            {
+                                ?> 
+>>>>>>> 783b97b6a26c22fe10e7179bfda9a3df51242f37
 
                     <article class="blog_card flex-col">
                    

@@ -1,0 +1,85 @@
+//----------------------------text-inputs html tags
+<!-- Name -->
+<div class="info-input">
+  <input type="text" name="name" autocomplete="off" value="" required>
+  <label for="name" class="label-name">
+      <span class="content-name">
+        Name <em>*</em>
+      </span>
+  </label>
+</div>
+<!-- Mobile No -->
+<div class="info-input">
+  <input type="text" name="mobile" autocomplete="off" value="" required>
+  <label for="mobile" class="label-name">
+      <span class="content-name">
+        Mobile No <em>*</em>
+      </span>
+  </label>
+</div>
+<!-- email -->
+<div class="info-input">
+  <input type="text" name="email" autocomplete="off" value="" required>
+  <label for="email" class="label-name">
+      <span class="content-name">
+        Email ID <em>*</em>
+      </span>
+  </label>
+</div>
+<!-- age -->
+<div class="info-input">
+  <input type="text" name="age" autocomplete="off" value="" required>
+  <label for="age" class="label-name">
+      <span class="content-name">
+        Age <em>*</em>
+      </span>
+  </label>
+</div>
+<!-- City of Residence -->
+<div class="info-input">
+  <input type="text" name="city" autocomplete="off" value="" required>
+  <label for="city" class="label-name">
+      <span class="content-name">
+        City of Residence <em>*</em>
+      </span>
+  </label>
+</div>
+<!-- Education/Occupation -->
+<div class="info-input">
+  <input type="text" name="occupation" autocomplete="off" value="" required>
+  <label for="occupation" class="label-name">
+      <span class="content-name">
+        Education/Occupation <em>*</em>
+      </span>
+  </label>
+</div>
+----------------------------//
+//----------------------------radio-inputs html tags
+<!-- Gender -->
+<div>
+  <p class="content-name">Gender <em>*</em></p>
+  <div class="gender-options">
+    <div>
+      <input type="radio" id="female" name="gender" value="female">
+      <label for="female">
+        <span class="content-name">
+          Female
+        </span>
+      </label>
+    </div>
+    <div>
+      <input type="radio" id="male" name="gender" value="male">
+      <label for="male">
+        <span class="content-name">
+          Male
+        </span>
+      </label>
+    </div>
+    <div>
+      <input type="radio" id="other" name="gender" value="other">
+      <label for="other">
+        <span class="content-name">Other</span>
+      </label>  
+    </div>
+  </div>
+</div>

@@ -1,14 +1,7 @@
 <?php
-    $host="localhost";
-    $username="root";
-    $pass="";
-    $db="uwb";
-    $conn=mysqli_connect($host,$username,$pass,$db);
-    if(!$conn){
-        die("Connection failed: " . mysqli_connect_error());
-    }
+    include '../conn.php';
 
-    ?>
+?>
 
 <?php
     if(isset($_SESSION['success']))
@@ -268,7 +261,7 @@
     if(isset($_POST['confirm'])){
         $comment = $_POST['rsn'];
         $status = 1;
-        $viewed = 0 ;
+        $viewed = 1 ;
         // $comment=$_POST['comment'];
         // $id=$_POST['id'];
         

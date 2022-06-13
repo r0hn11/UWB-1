@@ -236,11 +236,27 @@
                     <!-- card sample -->
                     
                     <li class="blog_card flex-col">
+<<<<<<< HEAD
                         <div class="bname"><?php echo $myrow['btitle'] ?></div>
                         <div class="bdate"><?php echo $myrow['date']?></div>
                         <div class="bauth"><?php echo $myrow['uname'] ?></div>
                         <div class="bdesc"><?php echo $myrow['bdescription']; ?></div>
                         <div class="bstory"><?php echo $myrow['bstory'];?></div>
+=======
+                        <div class="bname">4</div>
+                        <div class="bdate">20-5-2022</div>
+                        <div class="bauth">adrian murloc</div>
+                        <div class="bdesc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias eveniet totam tempora non eius voluptatem reprehenderit autem eum eligendi rem, nihil doloremque perspiciatis. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde soluta nulla molestias impedit fuga eius, laudantium iure corporis quas quasi.</div>
+                        <div class="bstory">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias eveniet totam tempora non eius voluptatem reprehenderit autem eum eligendi rem, nihil doloremque perspiciatis. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde soluta nulla molestias impedit fuga eius, laudantium iure corporis quas quasi.</div>
+                        <button class="rd_more">Read more</button>
+                    </li>
+                    <li class="blog_card flex-col">
+                        <div class="bname">5</div>
+                        <div class="bdate">20-5-2022</div>
+                        <div class="bauth">adrian murloc</div>
+                        <div class="bdesc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias eveniet totam tempora non eius voluptatem reprehenderit autem eum eligendi rem, nihil doloremque perspiciatis. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde soluta nulla molestias impedit fuga eius, laudantium iure corporis quas quasi.</div>
+                        <div class="bstory">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias eveniet totam tempora non eius voluptatem reprehenderit autem eum eligendi rem, nihil doloremque perspiciatis. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde soluta nulla molestias impedit fuga eius, laudantium iure corporis quas quasi.</div>
+>>>>>>> 783b97b6a26c22fe10e7179bfda9a3df51242f37
                         <button class="rd_more">Read more</button>
                     </li>
                     <?php
