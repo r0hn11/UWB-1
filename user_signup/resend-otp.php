@@ -9,7 +9,6 @@
     $from = "assassineshan3004@gmail.com";
     $headers = "From: $from";
     if(mail($to,$subject,$message,$headers)){
-        // $conn = mysqli_connect("localhost","root","","uwb");
         if($conn === false){
             die("ERROR: Could not connect. " . mysqli_connect_error());
         }

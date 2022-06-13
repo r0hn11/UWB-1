@@ -1,11 +1,5 @@
 <?php
 session_start();
-// $host="localhost";
-// $username="unitetrh_uwb";
-// $pass="unitedwellbeing";
-// $db="unitetrh_uwb";
-
-// $conn=mysqli_connect($host,$username,$pass,$db);
 
 include '../conn.php';
 

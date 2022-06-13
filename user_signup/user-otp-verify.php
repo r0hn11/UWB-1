@@ -1,7 +1,6 @@
 <?php
     session_start();
     include '../conn.php';
-    // $conn = mysqli_connect("localhost","root","","uwb");
     if($conn === false){
         die("ERROR: Could not connect. " . mysqli_connect_error());
     }

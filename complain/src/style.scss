@@ -296,13 +296,14 @@ main {
 				.question {
 					width: 100%;
 					height: auto;
-					min-height: 50px;
+					min-height: 40px;
 					display: flex;
 					align-items: flex-end;
 					padding-bottom: 5px;
 					justify-content: space-between;
 					border-bottom: 1px solid var(--input-border);
 					background-color: transparent;
+					cursor: pointer;
 
 					.content-name {
 						display: flex;
@@ -324,6 +325,7 @@ main {
 							font-size: 15px;
 							line-height: 18px;
 							color: var(--form-bg);
+							cursor: context-menu;
 
 							p {
 								overflow: hidden;
@@ -343,12 +345,6 @@ main {
 						}
 					}
 					.btn-container {
-						width: 100px;
-						display: flex;
-						align-items: center;
-						justify-content: flex-end;
-						cursor: pointer;
-
 						.fa-caret-down {
 							color: var(--label-text);
 							font-size: 25px;
@@ -364,7 +360,7 @@ main {
 					width: 100%;
 					height: auto;
 					position: absolute;
-					bottom: 30px;
+					bottom: 50px;
 					left: 0px;
 					background-color: var(--form-bg);
 					z-index: 100;
@@ -396,7 +392,7 @@ main {
 								color: var(--input-focus);
 								opacity: 0;
 							}
-							span {
+							.choice-text {
 								font-size: 14px;
 								color: var(--input-text);
 							}

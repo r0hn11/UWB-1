@@ -295,6 +295,7 @@ main .open_menu i{
     letter-spacing: 1px;
     gap: 5px;
     overflow: hidden;
+    position: relative;
 }
 .blog_card .bname{
     text-transform: uppercase;
@@ -321,7 +322,16 @@ main .open_menu i{
     background: linear-gradient(transparent 70%, var(--card));
 }
 .blog_card .bstory{display: none;}
-.blog_card .status{margin-top: 5px; font-weight: 500;}
+.blog_card .status{
+    margin-top: 5px;
+    font-weight: 500;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px 20px;
+    background: linear-gradient(0deg, var(--card), transparent);
+}
 .blog_card .status>span{text-transform: capitalize;}
 
 
