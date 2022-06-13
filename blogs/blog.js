@@ -13,6 +13,34 @@ let cards = document.querySelectorAll('.blog_card');
 let new_div = document.querySelector('.new');
 let login_flag = document.querySelector('.flag');
 
+let view_story_par = document.querySelector('.view_story_par');
+let view_story = document.querySelector('.view_story');
+let backtoblogs = document.querySelector('.view_story .backbtn');
+blogs_list = document.querySelectorAll('.blog_card')
+
+backtoblogs.onclick = function(){
+    view_story_par.classList.add('inactive2');
+    if(window.innerWidth <=650){
+        navbar_par.style.transform = 'translateY(0%)'
+    }
+}
+
+blogs_list.forEach(element=>{
+    element.onclick = function(){
+        if(window.innerWidth <=650){
+            navbar_par.style.transform = 'translateY(-100%)'
+        }
+        view_story_par.classList.remove("inactive2");
+        view_story.childNodes[3].innerHTML = element.childNodes[1].innerHTML;
+        view_story.childNodes[5].innerHTML = element.childNodes[3].innerHTML;
+        view_story.childNodes[7].innerHTML = element.childNodes[5].innerHTML;
+        view_story.childNodes[11].innerHTML = element.childNodes[7].innerHTML;
+        view_story.childNodes[15].innerHTML = element.childNodes[9].innerHTML;
+    }
+});
+
+
+
 np_wrap.style.opacity = '0';
 function show_np_img(){
     setTimeout(() => {

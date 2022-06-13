@@ -86,16 +86,20 @@
 
                 
                 <!-- CARDS BOX -->
-           
-                <div class="card_container flex-row">
+                
+                
 
-                    <div class="blog_msg flex-row">No <span></span> blogs.</div>
-                    <!-- <?php 
+                <div class="card_container flex-row">
+               
+                <?php 
                             while($myrow=mysqli_fetch_assoc($result3))
                             {
-                                ?> -->
+                                ?> 
+<div class="blog_msg flex-row">No <span></span> blogs.</div>
+
 
                     <article class="blog_card flex-col">
+                   
                         <p class="bname"><?php echo $myrow['btitle'] ?></p>
                         <p class="bdate"><?php echo $myrow['date']?></p>
                         <p class="bdesc"><?php echo $myrow['bdescription']; ?></p>
@@ -114,9 +118,9 @@
                     <?php
                             }
                             ?>
-
+                   
                 </div>
-               
+                
 
                 <!-- VIEW STORY -->
                 <div class="view_story_par flex-row inactive2">

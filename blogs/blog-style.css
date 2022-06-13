@@ -215,16 +215,21 @@ body{
     z-index: 1;
 }
 .blog_card .rd_more{
+    position: absolute;
     letter-spacing: 1px;
     background: transparent;
     font-family: var(--formal);
     font-size: 14px;
     text-align: left;
-    padding: 0;
+    padding: 10px;
     color: var(--links);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--card);
+    z-index: 1;
 }
 .blog_card .rd_more:hover, .blog_card .rd_more:focus{
-    background: none;
     text-decoration-line: underline;
 }
 
