@@ -1,5 +1,7 @@
 <?php
     session_start();
+    include '../conn.php';
+
     if(isset($_SESSION['loginstat']))
     {
         if($_SESSION['loginstat'] == 1)
@@ -7,6 +9,8 @@
             $flag = 1;  
             $usignnm = $_SESSION['usignnm'];
             $usignem = $_SESSION['usignem'];
+            $sql3 = "select * from blog order by date ASC";
+            $result3 = $conn->query($sql3) or die($conn->error);
         }
         else{
             $flag = 0;
@@ -224,25 +228,27 @@
                 
                 <!-- cards container -->
                 <ul class="blog_cards_container flex-row">
+                <?php 
+                            while($myrow=mysqli_fetch_assoc($result3))
+                            {
+                                ?> 
 
                     <!-- card sample -->
                     
                     <li class="blog_card flex-col">
-                        <div class="bname">4</div>
-                        <div class="bdate">20-5-2022</div>
-                        <div class="bauth">adrian murloc</div>
-                        <div class="bdesc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias eveniet totam tempora non eius voluptatem reprehenderit autem eum eligendi rem, nihil doloremque perspiciatis. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde soluta nulla molestias impedit fuga eius, laudantium iure corporis quas quasi.</div>
-                        <div class="bstory">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias eveniet totam tempora non eius voluptatem reprehenderit autem eum eligendi rem, nihil doloremque perspiciatis. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde soluta nulla molestias impedit fuga eius, laudantium iure corporis quas quasi.</div>
+<<<<<<< HEAD
+                        <div class="bname"><?php echo $myrow['btitle'] ?></div>
+                        <div class="bdate"><?php echo $myrow['date']?></div>
+                        <div class="bauth"><?php echo $myrow['uname'] ?></div>
+                        <div class="bdesc"><?php echo $myrow['bdescription']; ?></div>
+                        <div class="bstory"><?php echo $myrow['bstory'];?></div>
+
                         <button class="rd_more">Read more</button>
                     </li>
-                    <li class="blog_card flex-col">
-                        <div class="bname">5</div>
-                        <div class="bdate">20-5-2022</div>
-                        <div class="bauth">adrian murloc</div>
-                        <div class="bdesc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias eveniet totam tempora non eius voluptatem reprehenderit autem eum eligendi rem, nihil doloremque perspiciatis. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde soluta nulla molestias impedit fuga eius, laudantium iure corporis quas quasi.</div>
-                        <div class="bstory">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias eveniet totam tempora non eius voluptatem reprehenderit autem eum eligendi rem, nihil doloremque perspiciatis. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde soluta nulla molestias impedit fuga eius, laudantium iure corporis quas quasi.</div>
-                        <button class="rd_more">Read more</button>
-                    </li>
+                    <?php
+                            }
+                            ?>
+
                     
                 </ul>
                 
