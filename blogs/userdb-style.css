@@ -396,6 +396,7 @@ main .open_menu i{
     overflow-y: scroll;
     position: relative;
     text-align: justify;
+    min-height: 50px;
 }
 .view_story .vdesc{overflow-y: auto;}
 .view_story .vstry{max-height: 250px;}
@@ -743,7 +744,6 @@ main .open_menu i{
 
     .blog_card{
         width: 100%;
-        min-width: unset;
         max-width: unset;
         max-height: 200px;
         min-height: 200px;

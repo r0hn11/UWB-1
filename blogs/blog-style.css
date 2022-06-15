@@ -71,6 +71,54 @@ body{
 }
 
 
+/*--------------------------------------------------------SEARCH*/
+.blog_search{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    align-self: flex-start;
+    padding: 20px 30px; 
+    gap: 20px;
+}
+.blog_search::after{
+    content: '';
+    height: 2px;
+    width: 100%;
+    background: var(--accent);
+}
+.search_par{align-items: center; position: relative; width: 100%;}
+.search_par #searchbar{
+    background: var(--input-bg);
+    border: none;
+    outline: none;
+    padding: 7px 15px;
+    border-radius: 100px;
+    font-family: var(--formal);
+    color: var(--text);
+    letter-spacing: 1px;
+    width: 100%;
+    max-width: 300px;
+}
+.search_par svg{
+    padding: 10px 20px;
+    cursor: pointer;
+    fill: var(--text);
+    height: 40px;
+    width: auto;
+}
+#no_results{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    letter-spacing: 1px;
+    display: none;
+}
+
+
 /*--------------------------------------------------------NO POST*/
 .blog_main .blog_content{
     align-items: center;
@@ -150,12 +198,14 @@ body{
 }
 
 /*--------------------------------------------------------BLOG CARD*/
+.blog_cards_container_hidden{display: none;}
 .blog_cards_container{
     justify-content: center;
     gap: 30px;
     padding: 10px;
     flex-wrap: wrap;
     max-width: 1920px;
+    width: 100%;
 }
 
 .blog_card{
@@ -221,7 +271,7 @@ body{
     font-family: var(--formal);
     font-size: 14px;
     text-align: left;
-    padding: 10px;
+    padding: 10px 20px;
     color: var(--links);
     bottom: 0;
     left: 0;
@@ -282,6 +332,7 @@ body{
 
 /*--------------------------------------------------------ADD STORY CARD*/
 .add_post_par{
+    position:  unset !important;
     align-items: center;
     justify-content: center;
     min-width: 90vw;
@@ -370,16 +421,25 @@ body{
 
 
 /*--------------------------------------------------------RESPONSIVE*/
+@media screen and (max-width:820px){.search_par{justify-content: center;}}
 @media screen and (max-width:700px){
     .no_post_img{width: 180px;}
     .no_post_msg_bl{font-size: 20px;}
     .blog_main .share_btn{font-size: 12px;}
     .add_post_par .add_post{width: 495px; padding: 25px 40px;}
+    .blog_card{
+        height: 250px;
+        max-height: unset !important;
+        min-height: unset !important;
+    }
+    
 }
 @media screen and (max-width:600px) {
     .blog_card{
         max-width: 400px;
-        height: 200px;
+        height: 250px;
+        max-height: unset !important;
+        min-height: unset !important;
     }
 }
 @media screen and (max-width:500px) {
@@ -397,6 +457,7 @@ body{
     .no_post_msg_bl{font-size: 18px;}
     .add_post_par .add_post{width: 315px; padding: 25px 20px;}
     .add_post_par .add_post .buttons{flex-direction: column; gap: 7px;}
+    .blog_search{padding: 20px 15px;}
 }
 @media screen and (max-width:320px){
     .breadcrumb{align-items: center;}
@@ -406,6 +467,10 @@ body{
         letter-spacing: 0px;
     }
     .add_post_par .add_post{width: 250px; padding: 25px 10px;}
+    .blog_card{
+        max-width: 250px !important;
+        height: 300px !important;
+    }
 }
 
 .flag{
